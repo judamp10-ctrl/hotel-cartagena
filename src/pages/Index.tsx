@@ -1,21 +1,30 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import Locations from "@/components/Locations";
-import Experience from "@/components/Experience";
-import Booking from "@/components/Booking";
-import Footer from "@/components/Footer";
+import Hero from "@/components/cc/Hero";
+import Navbar from "@/components/cc/Navbar";
+import Valores from "@/components/cc/Valores";
+import Hotel from "@/components/cc/Hotel";
+import Eventos from "@/components/cc/Eventos";
+import Cotizar from "@/components/cc/Cotizar";
+import Galeria from "@/components/cc/Galeria";
+import Contacto from "@/components/cc/Contacto";
+import WhatsAppFab from "@/components/cc/WhatsAppFab";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen overflow-x-hidden">
-      <Navigation />
+const Index = () => (
+  <div id="top" className="min-h-screen bg-background">
+    <Navbar />
+    <main>
+      <h1 className="sr-only">
+        Cartagena Comfort — Hotel corporativo y centro de eventos en Cartagena
+      </h1>
       <Hero />
-      <Locations />
-      <Experience />
-      <Booking />
-      <Footer />
-    </div>
-  );
-};
+      <Valores />
+      <Hotel />
+      <Eventos />
+      <Cotizar />
+      <Galeria />
+    </main>
+    <Contacto />
+    <WhatsAppFab />
+  </div>
+);
 
 export default Index;
