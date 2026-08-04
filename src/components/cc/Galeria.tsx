@@ -18,14 +18,8 @@ const items = [
   { src: sociales, cat: "Eventos", alt: "Pista de baile con efectos", tall: false },
 ];
 
-const aliados = [
-  "Grupo Industrial Ternera",
-  "Universidad del Caribe",
-  "Logística Bolívar",
-  "Cámara Empresarial",
-  "Zona Franca Sur",
-  "Corporativo Andino",
-];
+// Pendiente: la clienta debe entregar nombres y logos reales de empresas aliadas.
+const aliados = ["01", "02", "03", "04", "05", "06"];
 
 const Galeria = () => {
   const [filtro, setFiltro] = useState<"Todos" | "Habitaciones" | "Eventos">("Todos");
@@ -93,9 +87,9 @@ const Galeria = () => {
             {aliados.map((a) => (
               <span
                 key={a}
-                className="text-center font-serif text-sm text-muted-foreground/60 grayscale transition-all duration-500 hover:text-gold hover:grayscale-0"
+                className="flex h-16 items-center justify-center border border-dashed border-border text-center font-serif text-xs text-muted-foreground/50 grayscale transition-all duration-500 hover:border-gold hover:text-gold hover:grayscale-0"
               >
-                {a}
+                Logo aliado {a}
               </span>
             ))}
           </div>
