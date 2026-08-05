@@ -4,7 +4,7 @@ import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACTO } from "@/data/cartagenaComfort";
 
 const Contacto = () => (
-  <footer id="contacto" className="scroll-mt-20 bg-ink py-24 text-background">
+  <footer id="contacto" className="scroll-mt-20 py-24 text-background">
     <div className="mx-auto max-w-7xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
