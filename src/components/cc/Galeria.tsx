@@ -26,7 +26,7 @@ const Galeria = () => {
   const visibles = items.filter((i) => filtro === "Todos" || i.cat === filtro);
 
   return (
-    <section id="galeria" className="scroll-mt-20 bg-secondary/50 py-28">
+    <section id="galeria" className="scroll-mt-20 py-28 pb-40 text-background">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <motion.div
@@ -36,7 +36,7 @@ const Galeria = () => {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="label-eyebrow text-gold">Galería</p>
-            <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] text-primary">
+            <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] ">
               Lo que ya hemos hecho
             </h2>
           </motion.div>
@@ -47,8 +47,8 @@ const Galeria = () => {
                 onClick={() => setFiltro(f)}
                 className={`label-eyebrow border px-5 py-3 transition-colors duration-400 ${
                   filtro === f
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border text-muted-foreground hover:border-gold hover:text-gold"
+                    ? "border-primary bg-primary -foreground"
+                    : "border-background/25 text-background/60 hover:border-gold hover:text-gold"
                 }`}
               >
                 {f}
@@ -79,15 +79,15 @@ const Galeria = () => {
           ))}
         </div>
 
-        <div className="mt-24 border-t border-border pt-14">
-          <p className="label-eyebrow text-center text-muted-foreground">
+        <div className="mt-24 border-t border-background/15 pt-14">
+          <p className="label-eyebrow text-center text-background/60">
             Empresas y aliados que confían en nosotros
           </p>
           <div className="mt-10 grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
             {aliados.map((a) => (
               <span
                 key={a}
-                className="flex h-16 items-center justify-center border border-dashed border-border text-center font-serif text-xs text-muted-foreground/50 grayscale transition-all duration-500 hover:border-gold hover:text-gold hover:grayscale-0"
+                className="flex h-16 items-center justify-center border border-dashed border-background/20 text-center font-serif text-xs text-background/40 grayscale transition-all duration-500 hover:border-gold hover:text-gold hover:grayscale-0"
               >
                 Logo aliado {a}
               </span>
