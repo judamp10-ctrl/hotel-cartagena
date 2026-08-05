@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { SALONES, PAQUETES, TIPOS_EVENTO, WA_EVENTOS } from "@/data/cartagenaComfort";
 
 const inputClass =
-  "w-full border-b border-border bg-transparent py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-gold";
+  "w-full border-b border-background/25 bg-transparent py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-gold";
 
 const Cotizar = () => {
   const [form, setForm] = useState({
@@ -59,7 +59,7 @@ const Cotizar = () => {
   };
 
   return (
-    <section id="cotizar" ref={ref} className="deep-panel scroll-mt-20 py-28 text-background">
+    <section id="cotizar" ref={ref} className="scroll-mt-20 py-28 text-background">
       <div className="mx-auto max-w-4xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -4,7 +4,7 @@ import habitacion from "@/assets/cc-habitacion.jpg";
 import { HABITACIONES, HABITACION_INCLUYE, WA_HOTEL } from "@/data/cartagenaComfort";
 
 const Hotel = () => (
-  <section id="hotel" className="deep-panel relative scroll-mt-20 py-28 text-background">
+  <section id="hotel" className="relative scroll-mt-20 py-28 text-background">
     <div className="mx-auto max-w-7xl px-6">
       <div className="grid items-end gap-10 lg:grid-cols-2">
         <motion.div
@@ -38,10 +38,10 @@ const Hotel = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className={`flex flex-col border p-10 transition-all duration-500 hover:-translate-y-1 ${
+            className={`flex flex-col p-10 transition-all duration-500 hover:-translate-y-1 ${
               h.destacada
-                ? "border-gold bg-background/[0.07]"
-                : "border-background/15 bg-background/[0.03]"
+                ? "glass-card-gold"
+                : "glass-card"
             }`}
           >
             {h.destacada && (

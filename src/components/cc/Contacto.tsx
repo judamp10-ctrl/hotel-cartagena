@@ -4,7 +4,7 @@ import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACTO } from "@/data/cartagenaComfort";
 
 const Contacto = () => (
-  <footer id="contacto" className="scroll-mt-20 bg-ink py-24 text-background">
+  <footer id="contacto" className="scroll-mt-20 py-24 text-background">
     <div className="mx-auto max-w-7xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -29,7 +29,7 @@ const Contacto = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="border border-background/15 bg-background/[0.04] p-10"
+            className="glass-card p-10"
           >
             <h3 className="font-serif text-2xl text-gold">{b.titulo}</h3>
             <div className="gold-rule mt-5 h-px w-12" />
@@ -69,7 +69,7 @@ const Contacto = () => (
         </a>
       </div>
 
-      <div className="mt-12 flex flex-col gap-4 border-t border-background/10 pt-8 text-xs text-background/45 md:flex-row md:items-center md:justify-between">
+      <div className="mb-16 mt-12 flex flex-col gap-4 border-t border-background/10 pt-8 text-xs text-background/45 md:flex-row md:items-center md:justify-between">
         <span>© {new Date().getFullYear()} Cartagena Comfort — Hotel &amp; Eventos</span>
         <Link to="/politica-datos" className="transition-colors hover:text-gold">
           Política de Tratamiento de Datos Personales
