@@ -84,7 +84,7 @@ const Eventos = () => (
         className="mt-24"
       >
         <h3 className="font-serif text-2xl text-background">Salones y capacidades</h3>
-        <div className="mt-8 overflow-x-auto glass-card">
+        <div className="tilt-card mt-8 overflow-x-auto">
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-background/15 bg-background/[0.07]">
