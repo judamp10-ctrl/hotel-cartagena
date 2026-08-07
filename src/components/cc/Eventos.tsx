@@ -27,7 +27,8 @@ const scrollToForm = (paquete?: string) => {
 };
 
 const Eventos = () => (
-  <section id="eventos" className="scroll-mt-20 py-28 text-background">
+  <section id="eventos-comfort" className="relative scroll-mt-20 py-28 text-background spotlight-wrap">
+    <span id="salones" className="absolute -top-20" aria-hidden />
     <div className="mx-auto max-w-7xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -36,38 +37,42 @@ const Eventos = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-2xl"
       >
-        <p className="label-eyebrow text-gold">El lugar · Eventos</p>
+        <p className="label-eyebrow text-gold">Eventos Comfort · El lugar</p>
         <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-tight text-background text-balance">
           Cuatro salones, una sola coordinación
         </h2>
       </motion.div>
 
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {tipos.map((t, i) => (
-          <motion.figure
+          <motion.div
             key={t.nombre}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative h-[340px] overflow-hidden"
           >
-            <img
-              src={t.img}
-              alt={`Eventos ${t.nombre.toLowerCase()} en Cartagena Comfort`}
-              loading="lazy"
-              width={1024}
-              height={1280}
-              className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
-            <figcaption className="absolute bottom-0 left-0 p-6">
-              <span className="font-serif text-2xl text-background">{t.nombre}</span>
-              <div className="gold-rule mt-3 h-px w-0 transition-all duration-700 group-hover:w-14" />
-            </figcaption>
-          </motion.figure>
+            <Tilt3DCard intensity={7}>
+              <figure className="relative h-[340px] overflow-hidden">
+                <img
+                  src={t.img}
+                  alt={`Eventos ${t.nombre.toLowerCase()} en Cartagena Comfort`}
+                  loading="lazy"
+                  width={1024}
+                  height={1280}
+                  className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+                <figcaption className="depth-2 absolute bottom-0 left-0 p-6">
+                  <span className="font-serif text-2xl text-background">{t.nombre}</span>
+                  <div className="gold-rule mt-3 h-px w-0 transition-all duration-700 group-hover:w-14" />
+                </figcaption>
+              </figure>
+            </Tilt3DCard>
+          </motion.div>
         ))}
       </div>
+
 
       {/* Salones */}
       <motion.div
