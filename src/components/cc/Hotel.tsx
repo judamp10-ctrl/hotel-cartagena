@@ -18,7 +18,7 @@ const Hotel = () => (
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="label-eyebrow text-gold">Inventario · Hotel</p>
+          <p className="label-eyebrow text-gold">Hotel Comfort · Inventario</p>
           <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-tight text-balance">
             Habitaciones pensadas para trabajar y descansar
           </h2>
@@ -37,36 +37,38 @@ const Hotel = () => (
 
       <div className="mt-16 grid gap-6 lg:grid-cols-3">
         {HABITACIONES.map((h, i) => (
-          <motion.article
+          <motion.div
             key={h.nombre}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className={`flex flex-col p-10 transition-all duration-500 hover:-translate-y-1 ${
-              h.destacada
-                ? "glass-card-gold"
-                : "glass-card"
-            }`}
           >
-            {h.destacada && (
-              <span className="label-eyebrow mb-4 text-gold">Más solicitada</span>
-            )}
-            <h3 className="font-serif text-2xl">{h.nombre}</h3>
-            <p className="mt-2 text-xs uppercase tracking-widest text-background/50">{h.pax}</p>
-            <p className="mt-8 font-serif text-4xl text-gold">{h.precio}</p>
-            <p className="mt-1 text-xs text-background/50">por noche · antes de IVA</p>
-            <ul className="mt-8 space-y-3 border-t border-background/15 pt-8">
-              {HABITACION_INCLUYE.map((s) => (
-                <li key={s} className="flex items-start gap-3 text-sm text-background/75">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </motion.article>
+            <Tilt3DCard variant={h.destacada ? "gold" : "glass"}>
+              <article className="flex h-full flex-col p-10">
+                {h.destacada && (
+                  <span className="label-eyebrow depth-2 mb-4 block text-gold">Más solicitada</span>
+                )}
+                <h3 className="depth-2 font-serif text-2xl">{h.nombre}</h3>
+                <p className="depth-1 mt-2 text-xs uppercase tracking-widest text-background/50">
+                  {h.pax}
+                </p>
+                <p className="depth-3 mt-8 font-serif text-4xl text-gold">{h.precio}</p>
+                <p className="depth-1 mt-1 text-xs text-background/50">por noche · antes de IVA</p>
+                <ul className="depth-1 mt-8 space-y-3 border-t border-background/15 pt-8">
+                  {HABITACION_INCLUYE.map((s) => (
+                    <li key={s} className="flex items-start gap-3 text-sm text-background/75">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Tilt3DCard>
+          </motion.div>
         ))}
       </div>
+
 
       <div className="mt-14 flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
         <p className="max-w-xl text-xs leading-relaxed text-background/45">
