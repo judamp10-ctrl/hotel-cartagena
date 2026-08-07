@@ -131,32 +131,36 @@ const Eventos = () => (
         <h3 className="font-serif text-2xl text-background">Paquetes de evento</h3>
         <div className="mt-8 grid gap-6 lg:grid-cols-3">
           {PAQUETES.map((p, i) => (
-            <motion.article
+            <motion.div
               key={p.nombre}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col glass-card p-10 transition-shadow duration-500 hover:shadow-[var(--shadow-lift)]"
             >
-              <h4 className="font-serif text-2xl text-background">{p.nombre}</h4>
-              <div className="gold-rule mt-5 h-px w-12" />
-              <ul className="mt-7 flex-1 space-y-3">
-                {p.incluye.map((x) => (
-                  <li key={x} className="flex items-start gap-3 text-sm text-background/60">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                    {x}
-                  </li>
-                ))}
-              </ul>
-              <button
-                onClick={() => scrollToForm(p.nombre)}
-                className="label-eyebrow mt-10 border border-primary px-8 py-4 text-background transition-colors duration-500 hover:bg-primary hover:text-background-foreground"
-              >
-                Cotizar {p.nombre}
-              </button>
-            </motion.article>
+              <Tilt3DCard variant={i === 2 ? "gold" : "glass"}>
+                <article className="flex h-full flex-col p-10">
+                  <h4 className="depth-2 font-serif text-2xl text-background">{p.nombre}</h4>
+                  <div className="gold-rule depth-2 mt-5 h-px w-12" />
+                  <ul className="depth-1 mt-7 flex-1 space-y-3">
+                    {p.incluye.map((x) => (
+                      <li key={x} className="flex items-start gap-3 text-sm text-background/60">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                        {x}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => scrollToForm(p.nombre)}
+                    className="label-eyebrow depth-3 mt-10 border border-gold/60 px-8 py-4 text-background transition-colors duration-500 hover:bg-gold hover:text-accent-foreground"
+                  >
+                    Cotizar {p.nombre}
+                  </button>
+                </article>
+              </Tilt3DCard>
+            </motion.div>
           ))}
+
         </div>
       </div>
 
