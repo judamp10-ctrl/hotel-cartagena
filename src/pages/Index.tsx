@@ -78,7 +78,7 @@ const Index = () => {
       <BottomNav
         links={links}
         active={active}
-        switchLabel={view === "hotel" ? "Ir a eventos →" : "← Ir a hotel"}
+        switchLabel={view === "hotel" ? "Ir a Eventos Comfort →" : "← Ir a Hotel Comfort"}
         onSwitch={switchView}
       />
       <CotizarModal
