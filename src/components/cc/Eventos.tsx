@@ -10,6 +10,7 @@ import bodas from "@/assets/cc-bodas.jpg";
 import corporativos from "@/assets/cc-corporativos.jpg";
 import sociales from "@/assets/cc-sociales.jpg";
 import tematicos from "@/assets/cc-tematicos.jpg";
+import Tilt3DCard from "@/components/cc/Tilt3DCard";
 import { PAQUETES, SALONES, SALON_BASE, SERVICIOS_EXTRA } from "@/data/cartagenaComfort";
 
 const tipos = [
