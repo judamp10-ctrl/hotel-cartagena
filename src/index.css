@@ -164,3 +164,101 @@
     -webkit-backdrop-filter: blur(22px);
   }
 }
+
+@layer utilities {
+  /* ---------- Fondos dinámicos animados ---------- */
+  @keyframes mesh-drift {
+    0%   { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 0%; }
+    50%  { background-position: 8% 6%, 90% 12%, 55% 92%, 0% 0%; }
+    100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 0%; }
+  }
+
+  .mesh-hotel,
+  .mesh-eventos {
+    background-size: 160% 160%, 150% 150%, 170% 170%, 100% 100%;
+    background-attachment: fixed;
+    animation: mesh-drift 26s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mesh-hotel, .mesh-eventos { animation: none; }
+  }
+
+  /* Esferas de luz difuminadas detrás de las tarjetas */
+  .spotlight-wrap { position: relative; }
+  .spotlight-wrap::before,
+  .spotlight-wrap::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 9999px;
+    filter: blur(90px);
+  }
+  .spotlight-wrap::before {
+    width: 42vw; height: 42vw;
+    left: -8vw; top: 4rem;
+    background: radial-gradient(circle, hsl(var(--gold) / 0.20) 0%, transparent 70%);
+  }
+  .spotlight-wrap::after {
+    width: 46vw; height: 46vw;
+    right: -10vw; bottom: 0;
+    background: radial-gradient(circle, hsl(210 80% 45% / 0.16) 0%, transparent 70%);
+  }
+  .mesh-hotel .spotlight-wrap::after {
+    background: radial-gradient(circle, hsl(155 69% 30% / 0.22) 0%, transparent 70%);
+  }
+  .spotlight-wrap > * { position: relative; z-index: 1; }
+
+  /* ---------- Tarjetas 3D ---------- */
+  .tilt-perspective {
+    perspective: 1000px;
+    height: 100%;
+  }
+
+  .tilt-card {
+    position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    will-change: transform;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.02)) padding-box,
+      linear-gradient(140deg, hsl(var(--gold) / 0.55), hsl(0 0% 100% / 0.10) 45%, hsl(var(--gold) / 0.35)) border-box;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 20px 50px -30px hsl(0 0% 0% / 0.9);
+    transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .tilt-card:hover {
+    box-shadow:
+      0 34px 70px -30px hsl(0 0% 0% / 0.95),
+      0 0 0 1px hsl(var(--gold) / 0.35),
+      0 0 38px -6px hsl(var(--gold) / 0.35);
+  }
+  .tilt-card-gold {
+    background:
+      linear-gradient(hsl(var(--gold) / 0.10), hsl(var(--gold) / 0.03)) padding-box,
+      linear-gradient(140deg, hsl(var(--gold) / 0.85), hsl(var(--gold) / 0.25) 50%, hsl(var(--gold) / 0.7)) border-box;
+  }
+
+  .tilt-glow {
+    position: absolute;
+    width: 22rem;
+    height: 22rem;
+    translate: -50% -50%;
+    border-radius: 9999px;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle, hsl(var(--gold) / 0.20) 0%, transparent 65%);
+    transition: opacity 0.5s ease;
+  }
+  .group:hover .tilt-glow { opacity: 1; }
+
+  .tilt-inner { transform-style: preserve-3d; }
+  .depth-1 { transform: translateZ(22px); }
+  .depth-2 { transform: translateZ(40px); }
+  .depth-3 { transform: translateZ(60px); }
+}
