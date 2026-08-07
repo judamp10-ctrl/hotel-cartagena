@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import habitacion from "@/assets/cc-habitacion.jpg";
+import Tilt3DCard from "@/components/cc/Tilt3DCard";
 import { HABITACIONES, HABITACION_INCLUYE, WA_HOTEL } from "@/data/cartagenaComfort";
 
 const Hotel = () => (
-  <section id="hotel" className="relative scroll-mt-20 py-28 text-background">
+  <section
+    id="hotel-comfort"
+    className="relative scroll-mt-20 py-28 text-background spotlight-wrap"
+  >
+    <span id="habitaciones" className="absolute -top-20" aria-hidden />
     <div className="mx-auto max-w-7xl px-6">
       <div className="grid items-end gap-10 lg:grid-cols-2">
         <motion.div
