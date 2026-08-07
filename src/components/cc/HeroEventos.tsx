@@ -89,7 +89,7 @@ const HeroEventos = ({ onCotizar, onSwitch }: Props) => {
           className="group mt-12 flex items-center gap-4 border border-background/30 px-8 py-4 text-[0.58rem] font-medium uppercase tracking-[0.34em] text-background backdrop-blur-md transition-colors duration-500 hover:border-gold hover:text-gold-soft md:text-[0.64rem]"
         >
           <ArrowLeft className="h-4 w-4 transition-transform duration-500 group-hover:-translate-x-2" />
-          Volver al hotel
+          Volver a Hotel Comfort
         </motion.button>
       </motion.div>
     </section>
