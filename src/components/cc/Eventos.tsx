@@ -10,6 +10,7 @@ import bodas from "@/assets/cc-bodas.jpg";
 import corporativos from "@/assets/cc-corporativos.jpg";
 import sociales from "@/assets/cc-sociales.jpg";
 import tematicos from "@/assets/cc-tematicos.jpg";
+import Tilt3DCard from "@/components/cc/Tilt3DCard";
 import { PAQUETES, SALONES, SALON_BASE, SERVICIOS_EXTRA } from "@/data/cartagenaComfort";
 
 const tipos = [
@@ -27,7 +28,8 @@ const scrollToForm = (paquete?: string) => {
 };
 
 const Eventos = () => (
-  <section id="eventos" className="scroll-mt-20 py-28 text-background">
+  <section id="eventos-comfort" className="relative scroll-mt-20 py-28 text-background spotlight-wrap">
+    <span id="salones" className="absolute -top-20" aria-hidden />
     <div className="mx-auto max-w-7xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -36,38 +38,42 @@ const Eventos = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-2xl"
       >
-        <p className="label-eyebrow text-gold">El lugar · Eventos</p>
+        <p className="label-eyebrow text-gold">Eventos Comfort · El lugar</p>
         <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-tight text-background text-balance">
           Cuatro salones, una sola coordinación
         </h2>
       </motion.div>
 
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {tipos.map((t, i) => (
-          <motion.figure
+          <motion.div
             key={t.nombre}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative h-[340px] overflow-hidden"
           >
-            <img
-              src={t.img}
-              alt={`Eventos ${t.nombre.toLowerCase()} en Cartagena Comfort`}
-              loading="lazy"
-              width={1024}
-              height={1280}
-              className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
-            <figcaption className="absolute bottom-0 left-0 p-6">
-              <span className="font-serif text-2xl text-background">{t.nombre}</span>
-              <div className="gold-rule mt-3 h-px w-0 transition-all duration-700 group-hover:w-14" />
-            </figcaption>
-          </motion.figure>
+            <Tilt3DCard intensity={7}>
+              <figure className="relative h-[340px] overflow-hidden">
+                <img
+                  src={t.img}
+                  alt={`Eventos ${t.nombre.toLowerCase()} en Cartagena Comfort`}
+                  loading="lazy"
+                  width={1024}
+                  height={1280}
+                  className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+                <figcaption className="depth-2 absolute bottom-0 left-0 p-6">
+                  <span className="font-serif text-2xl text-background">{t.nombre}</span>
+                  <div className="gold-rule mt-3 h-px w-0 transition-all duration-700 group-hover:w-14" />
+                </figcaption>
+              </figure>
+            </Tilt3DCard>
+          </motion.div>
         ))}
       </div>
+
 
       {/* Salones */}
       <motion.div
@@ -78,7 +84,7 @@ const Eventos = () => (
         className="mt-24"
       >
         <h3 className="font-serif text-2xl text-background">Salones y capacidades</h3>
-        <div className="mt-8 overflow-x-auto glass-card">
+        <div className="tilt-card mt-8 overflow-x-auto">
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-background/15 bg-background/[0.07]">
@@ -125,32 +131,36 @@ const Eventos = () => (
         <h3 className="font-serif text-2xl text-background">Paquetes de evento</h3>
         <div className="mt-8 grid gap-6 lg:grid-cols-3">
           {PAQUETES.map((p, i) => (
-            <motion.article
+            <motion.div
               key={p.nombre}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col glass-card p-10 transition-shadow duration-500 hover:shadow-[var(--shadow-lift)]"
             >
-              <h4 className="font-serif text-2xl text-background">{p.nombre}</h4>
-              <div className="gold-rule mt-5 h-px w-12" />
-              <ul className="mt-7 flex-1 space-y-3">
-                {p.incluye.map((x) => (
-                  <li key={x} className="flex items-start gap-3 text-sm text-background/60">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                    {x}
-                  </li>
-                ))}
-              </ul>
-              <button
-                onClick={() => scrollToForm(p.nombre)}
-                className="label-eyebrow mt-10 border border-primary px-8 py-4 text-background transition-colors duration-500 hover:bg-primary hover:text-background-foreground"
-              >
-                Cotizar {p.nombre}
-              </button>
-            </motion.article>
+              <Tilt3DCard variant={i === 2 ? "gold" : "glass"}>
+                <article className="flex h-full flex-col p-10">
+                  <h4 className="depth-2 font-serif text-2xl text-background">{p.nombre}</h4>
+                  <div className="gold-rule depth-2 mt-5 h-px w-12" />
+                  <ul className="depth-1 mt-7 flex-1 space-y-3">
+                    {p.incluye.map((x) => (
+                      <li key={x} className="flex items-start gap-3 text-sm text-background/60">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                        {x}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => scrollToForm(p.nombre)}
+                    className="label-eyebrow depth-3 mt-10 border border-gold/60 px-8 py-4 text-background transition-colors duration-500 hover:bg-gold hover:text-accent-foreground"
+                  >
+                    Cotizar {p.nombre}
+                  </button>
+                </article>
+              </Tilt3DCard>
+            </motion.div>
           ))}
+
         </div>
       </div>
 

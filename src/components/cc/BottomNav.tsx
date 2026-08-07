@@ -11,8 +11,16 @@ type Props = {
 
 const BottomNav = ({ links, active, switchLabel, onSwitch }: Props) => {
   const go = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (id === "inicio") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const top = el.getBoundingClientRect().top + window.scrollY - 24;
+    window.scrollTo({ top, behavior: "smooth" });
   };
+
 
   return (
     <motion.nav

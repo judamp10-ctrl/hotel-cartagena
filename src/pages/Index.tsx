@@ -17,18 +17,19 @@ const LINKS: Record<"hotel" | "eventos", NavLink[]> = {
   hotel: [
     { id: "inicio", label: "Inicio" },
     { id: "valores", label: "El cambio" },
-    { id: "hotel", label: "Hotel" },
+    { id: "hotel-comfort", label: "Hotel Comfort" },
     { id: "galeria", label: "Galería" },
     { id: "contacto", label: "Contacto" },
   ],
   eventos: [
     { id: "inicio", label: "Inicio" },
-    { id: "eventos", label: "Salones" },
+    { id: "eventos-comfort", label: "Eventos Comfort" },
     { id: "cotizar", label: "Cotizar" },
     { id: "galeria", label: "Galería" },
     { id: "contacto", label: "Contacto" },
   ],
 };
+
 
 const Index = () => {
   const [view, setView] = useState<"hotel" | "eventos">("hotel");
@@ -77,7 +78,7 @@ const Index = () => {
       <BottomNav
         links={links}
         active={active}
-        switchLabel={view === "hotel" ? "Ir a eventos →" : "← Ir a hotel"}
+        switchLabel={view === "hotel" ? "Ir a Eventos Comfort →" : "← Ir a Hotel Comfort"}
         onSwitch={switchView}
       />
       <CotizarModal
