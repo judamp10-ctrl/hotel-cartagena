@@ -94,7 +94,37 @@ export const SALONES = [
     valor: "$800.000",
     distintivo: "Imponente · Multifuncional — Video Beam + Tarima",
   },
+  {
+    nombre: "Ante Sala JeanPaul",
+    auditorio: 50,
+    aula: 25,
+    tipoU: 20,
+    valor: "Consultar",
+    distintivo: "Registro · Coffee break · Reuniones privadas",
+  },
 ];
+
+export const EVENTOS_TOTAL = "5 salones versátiles · hasta 600 asistentes";
+
+export const CATEGORIAS_EVENTO = [
+  {
+    nombre: "Eventos Corporativos",
+    texto: "Congresos, capacitaciones y lanzamientos con iluminación LED, pantallas y sonido profesional.",
+  },
+  {
+    nombre: "Bodas Elegantes",
+    texto: "Montajes dorados, mesa principal DKP y menaje de lujo con coordinación integral.",
+  },
+  {
+    nombre: "Quinceañeros & Sociales",
+    texto: "Temáticas personalizadas, pistas de baile, luces robóticas y efectos (humo bajo, volcanes).",
+  },
+  {
+    nombre: "Eventos Temáticos",
+    texto: "Conceptos decorativos a medida, animación y producción escénica completa.",
+  },
+];
+
 
 export const SALON_BASE = [
   "Mesa principal y recepción",
