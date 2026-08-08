@@ -28,7 +28,7 @@ const BottomNav = ({ links, active, switchLabel, onSwitch }: Props) => {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="glass-nav fixed inset-x-0 bottom-0 z-50 w-full || relative"
+      className="glass-nav fixed inset-x-0 bottom-0 z-50 w-full"
     >
       <ul className="flex items-center justify-center gap-6 px-4 py-5 md:gap-12">
         {links.map((l) => {
