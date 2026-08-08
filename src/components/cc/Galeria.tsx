@@ -8,22 +8,33 @@ import sociales from "@/assets/cc-sociales.jpg";
 import tematicos from "@/assets/cc-tematicos.jpg";
 import montaje from "@/assets/cc-montaje.jpg";
 
-const items = [
+const FILTROS = [
+  "Todos",
+  "Habitaciones",
+  "Eventos Corporativos",
+  "Bodas",
+  "Quinceañeros/Sociales",
+] as const;
+
+type Filtro = (typeof FILTROS)[number];
+
+const items: { src: string; cat: Filtro; alt: string; tall: boolean }[] = [
   { src: habitacion, cat: "Habitaciones", alt: "Habitación con escritorio de trabajo", tall: false },
-  { src: bodas, cat: "Eventos", alt: "Montaje de boda en salón", tall: true },
+  { src: bodas, cat: "Bodas", alt: "Montaje de boda en salón", tall: true },
   { src: lobby, cat: "Habitaciones", alt: "Lounge del hotel", tall: false },
-  { src: tematicos, cat: "Eventos", alt: "Evento temático decorado", tall: true },
-  { src: corporativos, cat: "Eventos", alt: "Salón en montaje auditorio", tall: false },
-  { src: montaje, cat: "Eventos", alt: "Montaje de mesa con menaje dorado", tall: false },
-  { src: sociales, cat: "Eventos", alt: "Pista de baile con efectos", tall: false },
+  { src: tematicos, cat: "Quinceañeros/Sociales", alt: "Evento temático decorado", tall: true },
+  { src: corporativos, cat: "Eventos Corporativos", alt: "Salón en montaje auditorio", tall: false },
+  { src: montaje, cat: "Bodas", alt: "Montaje de mesa con menaje dorado", tall: false },
+  { src: sociales, cat: "Quinceañeros/Sociales", alt: "Pista de baile con efectos", tall: false },
 ];
 
 // Pendiente: la clienta debe entregar nombres y logos reales de empresas aliadas.
 const aliados = ["01", "02", "03", "04", "05", "06"];
 
 const Galeria = () => {
-  const [filtro, setFiltro] = useState<"Todos" | "Habitaciones" | "Eventos">("Todos");
+  const [filtro, setFiltro] = useState<Filtro>("Todos");
   const visibles = items.filter((i) => filtro === "Todos" || i.cat === filtro);
+
 
   return (
     <section id="galeria" className="scroll-mt-20 py-28 pb-40 text-background">
