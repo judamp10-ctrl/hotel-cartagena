@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import heroImg from "@/assets/cc-hero-eventos.jpg";
+import Logo from "@/components/cc/Logo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -23,20 +24,24 @@ const HeroEventos = ({ onCotizar, onSwitch }: Props) => {
           alt="Salón corporativo del centro de eventos Cartagena Comfort"
           width={1920}
           height={1280}
-          className="h-full w-full object-cover"
+          className="photo-treat h-full w-full object-cover"
         />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(224_45%_5%_/_0.8)] via-[hsl(222_45%_6%_/_0.55)] to-[hsl(224_45%_4%_/_0.92)]" />
 
-      <motion.span
+      <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 1.1, ease }}
         style={{ opacity }}
-        className="absolute left-6 top-8 z-20 text-[0.6rem] font-medium uppercase tracking-[0.42em] text-background/80 md:left-10"
+        className="absolute left-6 top-7 z-20 flex items-center gap-4 md:left-10"
       >
-        Ala corporativa
-      </motion.span>
+        <Logo priority className="h-10 w-auto md:h-11" />
+        <span className="hidden text-[0.6rem] font-medium uppercase tracking-[0.42em] text-background/70 sm:inline">
+          Ala corporativa
+        </span>
+      </motion.div>
+
 
       <motion.button
         onClick={onCotizar}

@@ -60,7 +60,7 @@ const Eventos = () => (
                   loading="lazy"
                   width={1024}
                   height={1280}
-                  className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
+                  className="photo-treat h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
                 <figcaption className="depth-2 absolute bottom-0 left-0 p-6">

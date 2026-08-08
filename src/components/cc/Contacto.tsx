@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import Logo from "@/components/cc/Logo";
 import { CONTACTO } from "@/data/cartagenaComfort";
 
 const Contacto = () => (
@@ -53,7 +54,8 @@ const Contacto = () => (
         ))}
       </div>
 
-      <div className="mt-14 flex flex-col gap-6 border-t border-background/15 pt-10 md:flex-row md:items-center md:justify-between">
+      <div className="mt-14 flex flex-col gap-8 border-t border-background/15 pt-10 md:flex-row md:items-center md:justify-between">
+        <Logo className="h-16 w-auto md:h-20" />
         <p className="flex items-start gap-3 text-sm text-background/70">
           <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
           {CONTACTO.direccion}
