@@ -59,7 +59,15 @@ const BottomNav = ({ links, active, switchLabel, onSwitch }: Props) => {
           </button>
         </li>
       </ul>
+      <button
+        onClick={() => go("inicio")}
+        aria-label="Ir al inicio"
+        className="absolute bottom-3 left-6 hidden opacity-80 transition-opacity hover:opacity-100 lg:block"
+      >
+        <Logo className="h-10 w-auto" />
+      </button>
     </motion.nav>
+
   );
 };
 
