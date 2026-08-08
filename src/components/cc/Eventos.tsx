@@ -66,8 +66,10 @@ const Eventos = () => (
                 <figcaption className="depth-2 absolute bottom-0 left-0 p-6">
                   <span className="font-serif text-2xl text-background">{t.nombre}</span>
                   <div className="gold-rule mt-3 h-px w-0 transition-all duration-700 group-hover:w-14" />
+                  <p className="mt-3 text-xs leading-relaxed text-background/70">{t.texto}</p>
                 </figcaption>
               </figure>
+
             </Tilt3DCard>
           </motion.div>
         ))}
