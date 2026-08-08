@@ -67,8 +67,10 @@ const CotizarModal = ({ open, onClose, defaultServicio = "Hotel" }: Props) => {
               <X className="h-4 w-4" />
             </button>
 
-            <p className="label-eyebrow text-gold">Cotización rápida</p>
+            <Logo className="h-11 w-auto" />
+            <p className="label-eyebrow mt-6 text-gold">Cotización rápida</p>
             <h3 className="mt-4 font-serif text-3xl leading-tight">Cuéntanos lo esencial</h3>
+
 
             <form onSubmit={submit} className="mt-8 space-y-6">
               <input
