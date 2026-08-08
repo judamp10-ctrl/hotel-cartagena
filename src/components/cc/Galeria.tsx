@@ -51,16 +51,17 @@ const Galeria = () => {
               Lo que ya hemos hecho
             </h2>
           </motion.div>
-          <div className="flex gap-2">
-            {(["Todos", "Habitaciones", "Eventos"] as const).map((f) => (
+          <div className="flex flex-wrap gap-2">
+            {FILTROS.map((f) => (
               <button
                 key={f}
                 onClick={() => setFiltro(f)}
                 className={`label-eyebrow border px-5 py-3 transition-colors duration-400 ${
                   filtro === f
-                    ? "border-primary bg-primary -foreground"
+                    ? "border-gold bg-gold text-accent-foreground"
                     : "border-background/25 text-background/60 hover:border-gold hover:text-gold"
                 }`}
+
               >
                 {f}
               </button>
