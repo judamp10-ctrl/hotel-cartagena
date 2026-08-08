@@ -59,9 +59,6 @@ const Contacto = () => (
           <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
           {CONTACTO.direccion}
         </p>
-
-          {CONTACTO.direccion}
-        </p>
         <a
           href={CONTACTO.instagram}
           target="_blank"
