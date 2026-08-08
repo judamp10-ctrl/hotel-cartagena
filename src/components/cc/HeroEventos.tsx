@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import heroImg from "@/assets/cc-hero-eventos.jpg";
+import Logo from "@/components/cc/Logo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
