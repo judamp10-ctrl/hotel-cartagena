@@ -11,14 +11,11 @@ import corporativos from "@/assets/cc-corporativos.jpg";
 import sociales from "@/assets/cc-sociales.jpg";
 import tematicos from "@/assets/cc-tematicos.jpg";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
-import { PAQUETES, SALONES, SALON_BASE, SERVICIOS_EXTRA } from "@/data/cartagenaComfort";
+import { CATEGORIAS_EVENTO, EVENTOS_TOTAL, PAQUETES, SALONES, SALON_BASE, SERVICIOS_EXTRA } from "@/data/cartagenaComfort";
 
-const tipos = [
-  { nombre: "Bodas", img: bodas },
-  { nombre: "Corporativos", img: corporativos },
-  { nombre: "Sociales", img: sociales },
-  { nombre: "Temáticos", img: tematicos },
-];
+const imgs = [corporativos, bodas, sociales, tematicos];
+const tipos = CATEGORIAS_EVENTO.map((c, i) => ({ ...c, img: imgs[i] }));
+
 
 const scrollToForm = (paquete?: string) => {
   if (paquete) {
