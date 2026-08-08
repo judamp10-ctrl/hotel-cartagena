@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import Logo from "@/components/cc/Logo";
 import { WA_EVENTOS } from "@/data/cartagenaComfort";
 
 const field =
