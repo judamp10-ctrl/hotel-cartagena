@@ -20,7 +20,7 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
           alt="Lounge interior del Hotel Cartagena Comfort con iluminación cálida"
           width={1920}
           height={1280}
-          className="h-full w-full object-cover"
+          className="photo-treat h-full w-full object-cover"
         />
       </motion.div>
       <div className="absolute inset-0 hero-overlay" />
