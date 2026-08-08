@@ -36,6 +36,8 @@ export const VALORES = [
   },
 ];
 
+export const HOTEL_CAPACIDAD = "36 habitaciones equipadas";
+
 export const HABITACIONES = [
   { nombre: "Sencilla", pax: "1 persona", precio: "$185.000" },
   { nombre: "Doble", pax: "2 personas", precio: "$230.000", destacada: true },
@@ -50,6 +52,14 @@ export const HABITACION_INCLUYE = [
   "Wi-Fi de alta velocidad",
   "Desayuno buffet incluido",
 ];
+
+export const BENEFICIOS_CORPORATIVOS = [
+  "Convenios empresariales con tarifas preferenciales",
+  "Condiciones especiales para grupos y delegaciones",
+  "Planes con alimentación incluida",
+  "Estudio de crédito para empresas aliadas",
+];
+
 
 export const SALONES = [
   {
@@ -84,7 +94,37 @@ export const SALONES = [
     valor: "$800.000",
     distintivo: "Imponente · Multifuncional — Video Beam + Tarima",
   },
+  {
+    nombre: "Ante Sala JeanPaul",
+    auditorio: 50,
+    aula: 25,
+    tipoU: 20,
+    valor: "Consultar",
+    distintivo: "Registro · Coffee break · Reuniones privadas",
+  },
 ];
+
+export const EVENTOS_TOTAL = "5 salones versátiles · hasta 600 asistentes";
+
+export const CATEGORIAS_EVENTO = [
+  {
+    nombre: "Eventos Corporativos",
+    texto: "Congresos, capacitaciones y lanzamientos con iluminación LED, pantallas y sonido profesional.",
+  },
+  {
+    nombre: "Bodas Elegantes",
+    texto: "Montajes dorados, mesa principal DKP y menaje de lujo con coordinación integral.",
+  },
+  {
+    nombre: "Quinceañeros & Sociales",
+    texto: "Temáticas personalizadas, pistas de baile, luces robóticas y efectos (humo bajo, volcanes).",
+  },
+  {
+    nombre: "Eventos Temáticos",
+    texto: "Conceptos decorativos a medida, animación y producción escénica completa.",
+  },
+];
+
 
 export const SALON_BASE = [
   "Mesa principal y recepción",

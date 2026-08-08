@@ -11,14 +11,11 @@ import corporativos from "@/assets/cc-corporativos.jpg";
 import sociales from "@/assets/cc-sociales.jpg";
 import tematicos from "@/assets/cc-tematicos.jpg";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
-import { PAQUETES, SALONES, SALON_BASE, SERVICIOS_EXTRA } from "@/data/cartagenaComfort";
+import { CATEGORIAS_EVENTO, EVENTOS_TOTAL, PAQUETES, SALONES, SALON_BASE, SERVICIOS_EXTRA } from "@/data/cartagenaComfort";
 
-const tipos = [
-  { nombre: "Bodas", img: bodas },
-  { nombre: "Corporativos", img: corporativos },
-  { nombre: "Sociales", img: sociales },
-  { nombre: "Temáticos", img: tematicos },
-];
+const imgs = [corporativos, bodas, sociales, tematicos];
+const tipos = CATEGORIAS_EVENTO.map((c, i) => ({ ...c, img: imgs[i] }));
+
 
 const scrollToForm = (paquete?: string) => {
   if (paquete) {
@@ -40,8 +37,10 @@ const Eventos = () => (
       >
         <p className="label-eyebrow text-gold">Eventos Comfort · El lugar</p>
         <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-tight text-background text-balance">
-          Cuatro salones, una sola coordinación
+          Cinco salones, una sola coordinación
         </h2>
+        <p className="mt-4 text-sm text-background/70">{EVENTOS_TOTAL}</p>
+
       </motion.div>
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -67,8 +66,10 @@ const Eventos = () => (
                 <figcaption className="depth-2 absolute bottom-0 left-0 p-6">
                   <span className="font-serif text-2xl text-background">{t.nombre}</span>
                   <div className="gold-rule mt-3 h-px w-0 transition-all duration-700 group-hover:w-14" />
+                  <p className="mt-3 text-xs leading-relaxed text-background/70">{t.texto}</p>
                 </figcaption>
               </figure>
+
             </Tilt3DCard>
           </motion.div>
         ))}

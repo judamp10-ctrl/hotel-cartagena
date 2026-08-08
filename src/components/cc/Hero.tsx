@@ -50,33 +50,34 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
         style={{ opacity }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.3, delay: 0.2, ease }}
-          className="text-[0.58rem] font-medium uppercase tracking-[0.5em] text-gold-soft md:text-[0.68rem]"
-        >
-          Cartagena Comfort
-        </motion.p>
-
         <motion.h2
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.4, ease }}
-          className="mt-6 font-serif uppercase leading-[0.88] tracking-tighter text-background/95 text-balance text-[clamp(3rem,13vw,10.5rem)]"
+          transition={{ duration: 1.5, delay: 0.3, ease }}
+          className="max-w-full font-serif uppercase leading-[0.86] tracking-tighter text-background/95 text-balance text-[clamp(2.6rem,11.5vw,9.5rem)]"
         >
-          <span className="block">Hotel</span>
-          <span className="block">&amp; Eventos</span>
+          <span className="block">Cartagena</span>
+          <span className="block">Comfort</span>
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.7, ease }}
+          className="mt-7 text-[0.58rem] font-medium uppercase tracking-[0.5em] text-gold-soft md:text-[0.68rem]"
+        >
+          Hotel &amp; Eventos
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.3, delay: 0.8, ease }}
-          className="mt-8 font-sans text-[0.95rem] font-light italic tracking-wide text-background/80 md:text-lg"
+          transition={{ duration: 1.3, delay: 0.9, ease }}
+          className="mt-5 font-sans text-[0.95rem] font-light italic tracking-wide text-background/80 md:text-lg"
         >
           Confort · Cercanía · Experiencias
         </motion.p>
+
 
         <motion.button
           onClick={onSwitch}

@@ -2,7 +2,14 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import habitacion from "@/assets/cc-habitacion.jpg";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
-import { HABITACIONES, HABITACION_INCLUYE, WA_HOTEL } from "@/data/cartagenaComfort";
+import {
+  BENEFICIOS_CORPORATIVOS,
+  HABITACIONES,
+  HABITACION_INCLUYE,
+  HOTEL_CAPACIDAD,
+  WA_HOTEL,
+} from "@/data/cartagenaComfort";
+
 
 const Hotel = () => (
   <section
@@ -18,10 +25,11 @@ const Hotel = () => (
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="label-eyebrow text-gold">Hotel Comfort · Inventario</p>
+          <p className="label-eyebrow text-gold">Hotel Comfort · {HOTEL_CAPACIDAD}</p>
           <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-tight text-balance">
             Habitaciones pensadas para trabajar y descansar
           </h2>
+
         </motion.div>
         <motion.p
           initial={{ opacity: 0 }}
@@ -66,6 +74,15 @@ const Hotel = () => (
               </article>
             </Tilt3DCard>
           </motion.div>
+        ))}
+      </div>
+
+      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {BENEFICIOS_CORPORATIVOS.map((b) => (
+          <div key={b} className="glass-card p-6 text-sm leading-relaxed text-background/75">
+            <Check className="mb-3 h-4 w-4 text-gold" />
+            {b}
+          </div>
         ))}
       </div>
 

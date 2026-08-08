@@ -77,8 +77,21 @@
     @apply border-border;
   }
 
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: hsl(158 45% 5%);
+  }
+
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-foreground font-sans antialiased;
+  }
+
+  img, video, canvas, table {
+    max-width: 100%;
   }
 
   h1, h2, h3, h4 {
@@ -89,6 +102,7 @@
     scroll-behavior: smooth;
   }
 }
+
 
 @layer utilities {
   .label-eyebrow {
