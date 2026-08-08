@@ -25,10 +25,11 @@ const Hotel = () => (
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="label-eyebrow text-gold">Hotel Comfort · Inventario</p>
+          <p className="label-eyebrow text-gold">Hotel Comfort · {HOTEL_CAPACIDAD}</p>
           <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-tight text-balance">
             Habitaciones pensadas para trabajar y descansar
           </h2>
+
         </motion.div>
         <motion.p
           initial={{ opacity: 0 }}
