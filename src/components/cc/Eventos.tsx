@@ -37,8 +37,10 @@ const Eventos = () => (
       >
         <p className="label-eyebrow text-gold">Eventos Comfort · El lugar</p>
         <h2 className="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-tight text-background text-balance">
-          Cuatro salones, una sola coordinación
+          Cinco salones, una sola coordinación
         </h2>
+        <p className="mt-4 text-sm text-background/70">{EVENTOS_TOTAL}</p>
+
       </motion.div>
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
