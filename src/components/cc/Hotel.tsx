@@ -77,6 +77,15 @@ const Hotel = () => (
         ))}
       </div>
 
+      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {BENEFICIOS_CORPORATIVOS.map((b) => (
+          <div key={b} className="glass-card p-6 text-sm leading-relaxed text-background/75">
+            <Check className="mb-3 h-4 w-4 text-gold" />
+            {b}
+          </div>
+        ))}
+      </div>
+
 
       <div className="mt-14 flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
         <p className="max-w-xl text-xs leading-relaxed text-background/45">
