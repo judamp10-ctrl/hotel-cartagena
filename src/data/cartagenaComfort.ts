@@ -36,6 +36,8 @@ export const VALORES = [
   },
 ];
 
+export const HOTEL_CAPACIDAD = "36 habitaciones equipadas";
+
 export const HABITACIONES = [
   { nombre: "Sencilla", pax: "1 persona", precio: "$185.000" },
   { nombre: "Doble", pax: "2 personas", precio: "$230.000", destacada: true },
@@ -50,6 +52,14 @@ export const HABITACION_INCLUYE = [
   "Wi-Fi de alta velocidad",
   "Desayuno buffet incluido",
 ];
+
+export const BENEFICIOS_CORPORATIVOS = [
+  "Convenios empresariales con tarifas preferenciales",
+  "Condiciones especiales para grupos y delegaciones",
+  "Planes con alimentación incluida",
+  "Estudio de crédito para empresas aliadas",
+];
+
 
 export const SALONES = [
   {
