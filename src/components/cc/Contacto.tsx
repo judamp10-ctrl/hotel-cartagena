@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import Logo from "@/components/cc/Logo";
 import { CONTACTO } from "@/data/cartagenaComfort";
 
 const Contacto = () => (
