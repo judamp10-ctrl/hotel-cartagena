@@ -2,7 +2,14 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import habitacion from "@/assets/cc-habitacion.jpg";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
-import { HABITACIONES, HABITACION_INCLUYE, WA_HOTEL } from "@/data/cartagenaComfort";
+import {
+  BENEFICIOS_CORPORATIVOS,
+  HABITACIONES,
+  HABITACION_INCLUYE,
+  HOTEL_CAPACIDAD,
+  WA_HOTEL,
+} from "@/data/cartagenaComfort";
+
 
 const Hotel = () => (
   <section
