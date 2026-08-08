@@ -124,7 +124,13 @@
   .gold-rule {
     background: var(--gradient-gold);
   }
+
+  /* Tratamiento fotográfico unificado de marca */
+  .photo-treat {
+    filter: brightness(0.95) contrast(1.05) saturate(1.02);
+  }
 }
+
 
 @layer utilities {
   /* Fondos estéticos: mesh gradients oscuros + grano */
