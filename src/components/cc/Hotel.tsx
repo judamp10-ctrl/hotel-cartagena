@@ -115,7 +115,7 @@ const Hotel = () => (
           loading="lazy"
           width={1280}
           height={1024}
-          className="h-[420px] w-full object-cover transition-transform duration-[1.6s] hover:scale-105"
+          className="photo-treat h-[420px] w-full object-cover transition-transform duration-[1.6s] hover:scale-105"
         />
       </motion.figure>
     </div>

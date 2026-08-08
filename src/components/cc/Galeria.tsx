@@ -83,7 +83,7 @@ const Galeria = () => {
                 src={it.src}
                 alt={it.alt}
                 loading="lazy"
-                className={`w-full object-cover transition-transform duration-[1.4s] group-hover:scale-105 ${
+                className={`photo-treat w-full object-cover transition-transform duration-[1.4s] group-hover:scale-105 ${
                   it.tall ? "h-[520px]" : "h-[300px]"
                 }`}
               />
