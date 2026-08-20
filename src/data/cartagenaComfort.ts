@@ -41,7 +41,7 @@ export const HOTEL_CAPACIDAD = "36 habitaciones equipadas";
 export const HABITACIONES = [
   { nombre: "Sencilla", pax: "1 persona", precio: "$185.000" },
   { nombre: "Doble", pax: "2 personas", precio: "$230.000", destacada: true },
-  { nombre: "Triple", pax: "3 personas", precio: "$290.000" },
+  { nombre: "Triple", pax: "3 personas", precio: "$270.000" },
 ];
 
 export const HABITACION_INCLUYE = [
@@ -61,13 +61,16 @@ export const BENEFICIOS_CORPORATIVOS = [
 ];
 
 
+// Los valores por hora no aparecen en ningún documento entregado por la
+// clienta (brief, portafolio de eventos ni manual de marca).
+// PENDIENTE VERIFICAR CON CLIENTE antes de publicar.
 export const SALONES = [
   {
     nombre: "Galeón",
     auditorio: 100,
     aula: 40,
     tipoU: 35,
-    valor: "$300.000",
+    valor: "$300.000", // PENDIENTE VERIFICAR CON CLIENTE
     distintivo: "Práctico · Funcional · Versátil",
   },
   {
@@ -75,25 +78,27 @@ export const SALONES = [
     auditorio: 100,
     aula: 40,
     tipoU: 35,
-    valor: "$400.000",
+    valor: "$400.000", // PENDIENTE VERIFICAR CON CLIENTE
     distintivo: "Privado · Acogedor — incluye Ante Sala",
   },
   {
     nombre: "Olimpo",
     auditorio: 250,
-    aula: 80,
+    aula: 70,
     tipoU: 65,
-    valor: "$470.000",
+    valor: "$470.000", // PENDIENTE VERIFICAR CON CLIENTE
     distintivo: "Amplio · Accesible · Estratégico",
   },
   {
     nombre: "Cartagena Comfort",
-    auditorio: 500,
+    auditorio: 600,
     aula: 150,
     tipoU: 100,
-    valor: "$800.000",
+    valor: "$800.000", // PENDIENTE VERIFICAR CON CLIENTE
     distintivo: "Imponente · Multifuncional — Video Beam + Tarima",
   },
+  // Este salón no aparece en ningún documento entregado por la clienta.
+  // PENDIENTE VERIFICAR CON CLIENTE si existe y sus datos son correctos.
   {
     nombre: "Ante Sala JeanPaul",
     auditorio: 50,
