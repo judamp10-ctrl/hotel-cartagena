@@ -30,11 +30,11 @@ const BottomNav = ({ links, active, switchLabel, onSwitch }: Props) => {
       transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
       className="glass-nav fixed inset-x-0 bottom-0 z-50 w-full"
     >
-      <ul className="flex items-center justify-center gap-6 px-4 py-5 md:gap-12">
+      <ul className="flex items-center justify-start gap-5 overflow-x-auto px-5 py-5 [-ms-overflow-style:none] [scrollbar-width:none] md:justify-center md:gap-12 md:overflow-visible md:px-4 [&::-webkit-scrollbar]:hidden">
         {links.map((l) => {
           const isActive = active === l.id;
           return (
-            <li key={l.id}>
+            <li key={l.id} className="shrink-0 whitespace-nowrap">
               <button
                 onClick={() => go(l.id)}
                 className={`relative text-[0.58rem] font-medium uppercase tracking-[0.3em] transition-all duration-500 md:text-[0.66rem] ${
@@ -51,7 +51,7 @@ const BottomNav = ({ links, active, switchLabel, onSwitch }: Props) => {
             </li>
           );
         })}
-        <li>
+        <li className="shrink-0 whitespace-nowrap pr-1">
           <button
             onClick={onSwitch}
             className="text-[0.58rem] font-medium uppercase tracking-[0.3em] text-gold transition-colors duration-500 hover:text-gold-soft md:text-[0.66rem]"
