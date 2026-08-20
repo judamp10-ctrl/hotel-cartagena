@@ -15,31 +15,32 @@
     --popover: 0 0% 100%;
     --popover-foreground: 158 35% 12%;
 
-    /* Verde oscuro profundo #0E4B32 */
-    --primary: 155 69% 17%;
+    /* Verde primario de marca #0B6D3E (manual de rebranding) */
+    --primary: 151 82% 24%;
     --primary-foreground: 40 40% 96%;
 
-    /* Gris-azul claro #DDE4EC */
-    --secondary: 212 33% 90%;
-    --secondary-foreground: 155 69% 17%;
+    /* Gris-azul claro #DCE2EA (manual de rebranding) */
+    --secondary: 214 25% 89%;
+    --secondary-foreground: 151 82% 24%;
 
     --muted: 212 28% 92%;
     --muted-foreground: 200 12% 40%;
 
-    /* Oro elegante #C4A265 */
-    --accent: 39 44% 58%;
-    --accent-foreground: 158 40% 10%;
+    /* Oro de marca #C0A673 (manual de rebranding) */
+    --accent: 40 38% 60%;
+    --accent-foreground: 188 96% 6%;
 
-    --gold: 39 44% 58%;
-    --gold-soft: 39 50% 74%;
-    --ink: 158 40% 7%;
+    --gold: 40 38% 60%;
+    --gold-soft: 40 45% 76%;
+    /* Azul marino oscuro #012A30 (manual de rebranding) */
+    --ink: 188 96% 10%;
 
     --destructive: 0 65% 45%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 210 20% 85%;
     --input: 210 20% 85%;
-    --ring: 39 44% 58%;
+    --ring: 40 38% 60%;
 
     --radius: 0.25rem;
 
