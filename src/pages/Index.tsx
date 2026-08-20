@@ -16,19 +16,19 @@ import { useScrollSpy } from "@/hooks/useScrollSpy";
 
 const LINKS: Record<"hotel" | "eventos", NavLink[]> = {
   hotel: [
-    { id: "inicio", label: "Inicio" },
-    { id: "nosotros", label: "Nosotros" },
-    { id: "valores", label: "El cambio" },
     { id: "hotel-comfort", label: "Hotel Comfort" },
     { id: "galeria", label: "Galería" },
     { id: "contacto", label: "Contacto" },
+    { id: "inicio", label: "Inicio" },
+    { id: "nosotros", label: "Nosotros" },
+    { id: "valores", label: "El cambio" },
   ],
   eventos: [
-    { id: "inicio", label: "Inicio" },
     { id: "eventos-comfort", label: "Eventos Comfort" },
-    { id: "cotizar", label: "Cotizar" },
     { id: "galeria", label: "Galería" },
     { id: "contacto", label: "Contacto" },
+    { id: "inicio", label: "Inicio" },
+    { id: "cotizar", label: "Cotizar" },
   ],
 };
 
