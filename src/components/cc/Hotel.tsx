@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import habitacion from "@/assets/cc-habitacion.jpg";
+import ServiciosComplementarios from "@/components/cc/ServiciosComplementarios";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
 import {
   BENEFICIOS_CORPORATIVOS,
@@ -85,6 +86,8 @@ const Hotel = () => (
           </div>
         ))}
       </div>
+
+      <ServiciosComplementarios />
 
 
       <div className="mt-14 flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">

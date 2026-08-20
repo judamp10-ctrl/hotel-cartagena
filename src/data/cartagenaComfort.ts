@@ -9,6 +9,41 @@ export const CONTACTO = {
   instagramHandle: "@hotelcartagenacomfort1",
 };
 
+export const NOSOTROS = {
+  texto: [
+    "En Cartagena Comfort Hotel & Eventos ofrecemos soluciones integrales de hospedaje y eventos para empresas, grupos, organizaciones y visitantes que buscan comodidad, atención personalizada y espacios funcionales en Cartagena.",
+    "Contamos con 36 habitaciones y 5 salones para eventos con capacidad hasta para 600 asistentes, diseñados para adaptarse a diferentes necesidades, desde estadías corporativas y grupos turísticos hasta reuniones empresariales, capacitaciones, congresos y celebraciones especiales.",
+    "Nos distinguimos por brindar una experiencia cercana, eficiente y confiable, respaldada por un equipo comprometido con la calidad del servicio y el bienestar de nuestros huéspedes y clientes.",
+  ],
+};
+
+export const SERVICIOS_COMPLEMENTARIOS = [
+  {
+    titulo: "Desayuno Incluido",
+    texto: "Disfruta cada mañana de nuestro desayuno incluido en la tarifa de alojamiento.",
+  },
+  {
+    titulo: "Wi-Fi de Alta Velocidad",
+    texto: "Mantente conectado en todo momento con acceso a internet en habitaciones, salones de eventos y espacios comunes.",
+  },
+  {
+    titulo: "Ascensor",
+    texto: "Acceso cómodo y seguro a las diferentes áreas y niveles de nuestras instalaciones.",
+  },
+  {
+    titulo: "Planta Eléctrica",
+    texto: "Respaldo energético para garantizar la continuidad de nuestros servicios ante cualquier eventualidad.",
+  },
+  {
+    titulo: "Tanques Elevados",
+    texto: "Sistema de almacenamiento de agua que asegura el suministro permanente para huéspedes y eventos.",
+  },
+  {
+    titulo: "Parqueadero Privado",
+    texto: "Espacios de estacionamiento para brindar mayor comodidad y seguridad durante tu estadía o evento.",
+  },
+];
+
 export const VALORES = [
   {
     titulo: "Atención Personalizada",

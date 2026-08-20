@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Hero from "@/components/cc/Hero";
 import HeroEventos from "@/components/cc/HeroEventos";
+import Nosotros from "@/components/cc/Nosotros";
 import Valores from "@/components/cc/Valores";
 import Hotel from "@/components/cc/Hotel";
 import Eventos from "@/components/cc/Eventos";
@@ -16,6 +17,7 @@ import { useScrollSpy } from "@/hooks/useScrollSpy";
 const LINKS: Record<"hotel" | "eventos", NavLink[]> = {
   hotel: [
     { id: "inicio", label: "Inicio" },
+    { id: "nosotros", label: "Nosotros" },
     { id: "valores", label: "El cambio" },
     { id: "hotel-comfort", label: "Hotel Comfort" },
     { id: "galeria", label: "Galería" },
@@ -60,6 +62,7 @@ const Index = () => {
           {view === "hotel" ? (
             <>
               <Hero onCotizar={() => setModal(true)} onSwitch={switchView} />
+              <Nosotros />
               <Valores />
               <Hotel />
             </>
