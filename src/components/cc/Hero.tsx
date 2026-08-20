@@ -55,30 +55,20 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
         style={{ opacity }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
-        <motion.h2
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.3, ease }}
-          className="max-w-full font-serif uppercase leading-[0.86] tracking-tighter text-background/95 text-balance text-[clamp(2.6rem,11.5vw,9.5rem)]"
-        >
-          <span className="block">Cartagena</span>
-          <span className="block">Comfort</span>
-        </motion.h2>
-
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.7, ease }}
-          className="mt-7 text-[0.58rem] font-medium uppercase tracking-[0.5em] text-gold-soft md:text-[0.68rem]"
+          transition={{ duration: 1.2, delay: 0.4, ease }}
+          className="text-[0.64rem] font-medium uppercase tracking-[0.5em] text-gold-soft md:text-[0.8rem]"
         >
           Hotel &amp; Eventos
         </motion.p>
 
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.3, delay: 0.9, ease }}
-          className="mt-5 font-sans text-[0.95rem] font-light italic tracking-wide text-background/80 md:text-lg"
+          transition={{ duration: 1.4, delay: 0.6, ease }}
+          className="mt-6 max-w-md font-serif text-[clamp(1.7rem,6.5vw,3.2rem)] italic leading-tight text-background/95 text-balance"
         >
           Confort · Cercanía · Experiencias
         </motion.p>
@@ -88,8 +78,8 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
           onClick={onSwitch}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 1, ease }}
-          className="group mt-12 flex items-center gap-4 border border-background/30 px-8 py-4 text-[0.58rem] font-medium uppercase tracking-[0.34em] text-background backdrop-blur-md transition-colors duration-500 hover:border-gold hover:text-gold-soft md:text-[0.64rem]"
+          transition={{ duration: 1.2, delay: 0.9, ease }}
+          className="group mt-10 flex items-center gap-4 border border-background/30 px-8 py-4 text-[0.58rem] font-medium uppercase tracking-[0.34em] text-background backdrop-blur-md transition-colors duration-500 hover:border-gold hover:text-gold-soft md:text-[0.64rem]"
         >
           Explorar Eventos Comfort
           <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-2" />
