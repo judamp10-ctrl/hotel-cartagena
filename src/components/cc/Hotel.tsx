@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import habitacion from "@/assets/cc-habitacion.jpg";
+import habitacion from "@/assets/cc-habitacion.webp";
 import ServiciosComplementarios from "@/components/cc/ServiciosComplementarios";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
 import {
@@ -114,7 +114,7 @@ const Hotel = () => (
       >
         <img
           src={habitacion}
-          alt="Habitación del Hotel Cartagena Comfort con escritorio de trabajo"
+          alt="Habitación triple del Hotel Cartagena Comfort"
           loading="lazy"
           width={1280}
           height={1024}

@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/cc-hero.jpg";
+import heroImg from "@/assets/cc-hero.webp";
 import Logo from "@/components/cc/Logo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -18,7 +18,7 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <img
           src={heroImg}
-          alt="Lounge interior del Hotel Cartagena Comfort con iluminación cálida"
+          alt="Fachada del Hotel Cartagena Comfort, balcones característicos verde y blanco"
           width={1920}
           height={1280}
           className="photo-treat h-full w-full object-cover"

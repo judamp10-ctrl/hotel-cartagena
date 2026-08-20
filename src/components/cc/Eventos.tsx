@@ -6,10 +6,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import bodas from "@/assets/cc-bodas.jpg";
-import corporativos from "@/assets/cc-corporativos.jpg";
-import sociales from "@/assets/cc-sociales.jpg";
-import tematicos from "@/assets/cc-tematicos.jpg";
+import bodas from "@/assets/cc-bodas.webp";
+import corporativos from "@/assets/cc-corporativos.webp";
+import sociales from "@/assets/cc-sociales.webp";
+import tematicos from "@/assets/cc-tematicos.webp";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
 import { CATEGORIAS_EVENTO, EVENTOS_TOTAL, PAQUETES, SALONES, SALON_BASE, SERVICIOS_EXTRA } from "@/data/cartagenaComfort";
 
