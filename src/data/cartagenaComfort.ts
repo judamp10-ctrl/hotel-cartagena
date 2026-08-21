@@ -96,16 +96,14 @@ export const BENEFICIOS_CORPORATIVOS = [
 ];
 
 
-// Los valores por hora no aparecen en ningún documento entregado por la
-// clienta (brief, portafolio de eventos ni manual de marca).
-// PENDIENTE VERIFICAR CON CLIENTE antes de publicar.
+// Precios confirmados por la clienta.
 export const SALONES = [
   {
     nombre: "Galeón",
     auditorio: 100,
     aula: 40,
     tipoU: 35,
-    valor: "$300.000", // PENDIENTE VERIFICAR CON CLIENTE
+    valor: "$300.000",
     distintivo: "Práctico · Funcional · Versátil",
   },
   {
@@ -113,7 +111,7 @@ export const SALONES = [
     auditorio: 100,
     aula: 40,
     tipoU: 35,
-    valor: "$400.000", // PENDIENTE VERIFICAR CON CLIENTE
+    valor: "$400.000",
     distintivo: "Privado · Acogedor — incluye Ante Sala",
   },
   {
@@ -121,7 +119,7 @@ export const SALONES = [
     auditorio: 250,
     aula: 70,
     tipoU: 65,
-    valor: "$470.000", // PENDIENTE VERIFICAR CON CLIENTE
+    valor: "$470.000",
     distintivo: "Amplio · Accesible · Estratégico",
   },
   {
@@ -129,7 +127,7 @@ export const SALONES = [
     auditorio: 600,
     aula: 150,
     tipoU: 100,
-    valor: "$800.000", // PENDIENTE VERIFICAR CON CLIENTE
+    valor: "$800.000",
     distintivo: "Imponente · Multifuncional — Video Beam + Tarima",
   },
   // Este salón no aparece en ningún documento entregado por la clienta.
