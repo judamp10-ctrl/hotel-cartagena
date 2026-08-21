@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Hero from "@/components/cc/Hero";
 import HeroEventos from "@/components/cc/HeroEventos";
 import Nosotros from "@/components/cc/Nosotros";
@@ -50,33 +50,30 @@ const Index = () => {
         Cartagena Comfort — Hotel corporativo y centro de eventos en Cartagena
       </h1>
 
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={view}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className={view === "hotel" ? "mesh-hotel noise-layer" : "mesh-eventos noise-layer"}
-        >
-          {view === "hotel" ? (
-            <>
-              <Hero onCotizar={() => setModal(true)} onSwitch={switchView} />
-              <Nosotros />
-              <Valores />
-              <Hotel />
-            </>
-          ) : (
-            <>
-              <HeroEventos onCotizar={() => setModal(true)} onSwitch={switchView} />
-              <Eventos />
-              <Cotizar />
-            </>
-          )}
-          <Galeria />
-          <Contacto />
-        </motion.main>
-      </AnimatePresence>
+      <motion.main
+        key={view}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className={view === "hotel" ? "mesh-hotel noise-layer" : "mesh-eventos noise-layer"}
+      >
+        {view === "hotel" ? (
+          <>
+            <Hero onCotizar={() => setModal(true)} onSwitch={switchView} />
+            <Nosotros />
+            <Valores />
+            <Hotel />
+          </>
+        ) : (
+          <>
+            <HeroEventos onCotizar={() => setModal(true)} onSwitch={switchView} />
+            <Eventos />
+            <Cotizar />
+          </>
+        )}
+        <Galeria />
+        <Contacto />
+      </motion.main>
 
       <BottomNav
         links={links}
