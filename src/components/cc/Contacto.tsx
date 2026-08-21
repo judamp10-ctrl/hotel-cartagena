@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "@/components/cc/Logo";
+import mapaUbicacion from "@/assets/cc-mapa-ubicacion.webp";
 import { CONTACTO } from "@/data/cartagenaComfort";
+
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACTO.direccion)}`;
 
 const Contacto = () => (
   <footer id="contacto" className="scroll-mt-20 py-24 text-background">
@@ -19,7 +22,7 @@ const Contacto = () => (
         </h2>
       </motion.div>
 
-      <div className="mt-14 grid gap-6 lg:grid-cols-2">
+      <div className="mt-14 grid gap-6 lg:grid-cols-3">
         {[
           { titulo: "Reservas de Hotel", data: CONTACTO.hotel },
           { titulo: "Reservas de Eventos", data: CONTACTO.eventos },
@@ -52,6 +55,30 @@ const Contacto = () => (
             </a>
           </motion.div>
         ))}
+
+        <motion.a
+          href={MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="group relative block overflow-hidden rounded-sm"
+        >
+          <img
+            src={mapaUbicacion}
+            alt="Mapa de ubicación del Hotel Cartagena Comfort"
+            loading="lazy"
+            width={900}
+            height={1125}
+            className="h-full min-h-[220px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <span className="absolute inset-x-0 bottom-0 bg-ink/70 px-6 py-4 backdrop-blur-sm">
+            <span className="label-eyebrow text-gold">Cómo llegar</span>
+            <span className="mt-1 block text-xs text-background/80">Abrir en Google Maps →</span>
+          </span>
+        </motion.a>
       </div>
 
       <div className="mt-14 flex flex-col gap-8 border-t border-background/15 pt-10 md:flex-row md:items-center md:justify-between">

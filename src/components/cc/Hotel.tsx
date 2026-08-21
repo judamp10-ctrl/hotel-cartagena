@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import bienvenida from "@/assets/cc-bienvenida.webp";
 import habitacion from "@/assets/cc-habitacion.webp";
+import tarifaSencilla from "@/assets/cc-tarifa-sencilla.webp";
+import tarifaDoble from "@/assets/cc-tarifa-doble.webp";
 import ServiciosComplementarios from "@/components/cc/ServiciosComplementarios";
 import Tilt3DCard from "@/components/cc/Tilt3DCard";
 import {
@@ -10,6 +13,12 @@ import {
   HOTEL_CAPACIDAD,
   WA_HOTEL,
 } from "@/data/cartagenaComfort";
+
+const FOTO_POR_HABITACION: Record<string, string> = {
+  Sencilla: tarifaSencilla,
+  Doble: tarifaDoble,
+  Triple: habitacion,
+};
 
 
 const Hotel = () => (
@@ -44,6 +53,23 @@ const Hotel = () => (
         </motion.p>
       </div>
 
+      <motion.figure
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="mt-14 overflow-hidden"
+      >
+        <img
+          src={bienvenida}
+          alt="Recepción del Hotel Cartagena Comfort"
+          loading="lazy"
+          width={1200}
+          height={1600}
+          className="photo-treat h-[360px] w-full object-cover object-top transition-transform duration-[1.6s] hover:scale-105 md:h-[460px]"
+        />
+      </motion.figure>
+
       <div className="mt-16 grid gap-6 lg:grid-cols-3">
         {HABITACIONES.map((h, i) => (
           <motion.div
@@ -54,24 +80,38 @@ const Hotel = () => (
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <Tilt3DCard variant={h.destacada ? "gold" : "glass"}>
-              <article className="flex h-full flex-col p-10">
-                {h.destacada && (
-                  <span className="label-eyebrow depth-2 mb-4 block text-gold">Más solicitada</span>
-                )}
-                <h3 className="depth-2 font-serif text-2xl">{h.nombre}</h3>
-                <p className="depth-1 mt-2 text-xs uppercase tracking-widest text-background/50">
-                  {h.pax}
-                </p>
-                <p className="depth-3 mt-8 font-serif text-4xl text-gold">{h.precio}</p>
-                <p className="depth-1 mt-1 text-xs text-background/50">por noche · antes de IVA</p>
-                <ul className="depth-1 mt-8 space-y-3 border-t border-background/15 pt-8">
-                  {HABITACION_INCLUYE.map((s) => (
-                    <li key={s} className="flex items-start gap-3 text-sm text-background/75">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
+              <article className="flex h-full flex-col">
+                <div className="depth-1 relative overflow-hidden">
+                  <img
+                    src={FOTO_POR_HABITACION[h.nombre]}
+                    alt={`Habitación ${h.nombre.toLowerCase()} del Hotel Cartagena Comfort`}
+                    loading="lazy"
+                    width={900}
+                    height={640}
+                    className="h-48 w-full object-cover"
+                  />
+                  {h.destacada && (
+                    <span className="label-eyebrow absolute right-4 top-4 bg-gold px-3 py-1.5 text-accent-foreground">
+                      Más solicitada
+                    </span>
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col p-10">
+                  <h3 className="depth-2 font-serif text-2xl">{h.nombre}</h3>
+                  <p className="depth-1 mt-2 text-xs uppercase tracking-widest text-background/50">
+                    {h.pax}
+                  </p>
+                  <p className="depth-3 mt-8 font-serif text-4xl text-gold">{h.precio}</p>
+                  <p className="depth-1 mt-1 text-xs text-background/50">por noche · antes de IVA</p>
+                  <ul className="depth-1 mt-8 space-y-3 border-t border-background/15 pt-8">
+                    {HABITACION_INCLUYE.map((s) => (
+                      <li key={s} className="flex items-start gap-3 text-sm text-background/75">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </article>
             </Tilt3DCard>
           </motion.div>
@@ -104,23 +144,6 @@ const Hotel = () => (
           Consultar disponibilidad
         </a>
       </div>
-
-      <motion.figure
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-20 overflow-hidden"
-      >
-        <img
-          src={habitacion}
-          alt="Habitación triple del Hotel Cartagena Comfort"
-          loading="lazy"
-          width={1280}
-          height={1024}
-          className="photo-treat h-[420px] w-full object-cover transition-transform duration-[1.6s] hover:scale-105"
-        />
-      </motion.figure>
     </div>
   </section>
 );

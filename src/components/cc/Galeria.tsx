@@ -12,6 +12,7 @@ import salaComun from "@/assets/cc-sala-comun.webp";
 import habitacionDoble from "@/assets/cc-habitacion-doble.webp";
 import habitacionIndividual from "@/assets/cc-habitacion-individual.webp";
 import rincon from "@/assets/cc-rincon.webp";
+import literaGrupal from "@/assets/cc-litera-grupal.webp";
 
 const FILTROS = [
   "Todos",
@@ -36,6 +37,7 @@ const items: { src: string; cat: Filtro; alt: string; tall: boolean }[] = [
   { src: habitacionDoble, cat: "Habitaciones", alt: "Habitación doble del hotel", tall: true },
   { src: habitacionIndividual, cat: "Habitaciones", alt: "Habitación individual del hotel", tall: true },
   { src: rincon, cat: "Habitaciones", alt: "Rincón de descanso en el hotel", tall: false },
+  { src: literaGrupal, cat: "Habitaciones", alt: "Habitación con litera para grupos", tall: true },
 ];
 
 // Pendiente: la clienta debe entregar nombres y logos reales de empresas aliadas.
