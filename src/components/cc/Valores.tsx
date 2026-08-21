@@ -5,7 +5,7 @@ import { VALORES } from "@/data/cartagenaComfort";
 const Valores = () => (
   <section
     id="valores"
-    className="relative scroll-mt-20 py-28 text-background spotlight-wrap"
+    className="relative scroll-mt-20 py-28 text-background spotlight-wrap section-fade-top"
   >
     <div className="mx-auto max-w-7xl px-6">
       <motion.div
@@ -32,7 +32,7 @@ const Valores = () => (
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: Math.min(i * 0.07, 0.4), ease: [0.22, 1, 0.36, 1] }}
           >
             <Tilt3DCard>
               <article className="flex h-full flex-col p-10">

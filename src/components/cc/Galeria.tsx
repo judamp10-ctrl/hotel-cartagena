@@ -49,7 +49,7 @@ const Galeria = () => {
 
 
   return (
-    <section id="galeria" className="scroll-mt-20 py-28 pb-40 text-background">
+    <section id="galeria" className="scroll-mt-20 py-28 pb-40 text-background section-fade-top">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <motion.div
@@ -108,13 +108,17 @@ const Galeria = () => {
             Empresas y aliados que confían en nosotros
           </p>
           <div className="mt-10 grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
-            {aliados.map((a) => (
-              <span
+            {aliados.map((a, i) => (
+              <motion.span
                 key={a}
-                className="flex h-16 items-center justify-center border border-dashed border-background/20 text-center font-serif text-xs text-background/40 grayscale transition-all duration-500 hover:border-gold hover:text-gold hover:grayscale-0"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: Math.min(i * 0.05, 0.4), ease: [0.22, 1, 0.36, 1] }}
+                className="flex h-16 items-center justify-center border border-dashed border-background/20 text-center font-serif text-xs text-background/40 grayscale transition-all duration-500 [@media(hover:hover)]:hover:-translate-y-1 hover:border-gold hover:text-gold hover:grayscale-0"
               >
                 Logo aliado {a}
-              </span>
+              </motion.span>
             ))}
           </div>
         </div>

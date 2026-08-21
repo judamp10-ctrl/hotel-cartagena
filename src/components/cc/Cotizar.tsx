@@ -59,7 +59,7 @@ const Cotizar = () => {
   };
 
   return (
-    <section id="cotizar" ref={ref} className="scroll-mt-20 py-28 text-background">
+    <section id="cotizar" ref={ref} className="scroll-mt-20 py-28 text-background section-fade-top">
       <div className="mx-auto max-w-4xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

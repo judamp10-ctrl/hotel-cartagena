@@ -14,6 +14,8 @@ import {
   WA_HOTEL,
 } from "@/data/cartagenaComfort";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 const FOTO_POR_HABITACION: Record<string, string> = {
   Sencilla: tarifaSencilla,
   Doble: tarifaDoble,
@@ -24,7 +26,7 @@ const FOTO_POR_HABITACION: Record<string, string> = {
 const Hotel = () => (
   <section
     id="hotel-comfort"
-    className="relative scroll-mt-20 py-28 text-background spotlight-wrap"
+    className="relative scroll-mt-20 py-28 text-background spotlight-wrap section-fade-top"
   >
     <span id="habitaciones" className="absolute -top-20" aria-hidden />
     <div className="mx-auto max-w-7xl px-6">
@@ -104,11 +106,18 @@ const Hotel = () => (
                   <p className="depth-3 mt-8 font-serif text-4xl text-gold">{h.precio}</p>
                   <p className="depth-1 mt-1 text-xs text-background/50">por noche · antes de IVA</p>
                   <ul className="depth-1 mt-8 space-y-3 border-t border-background/15 pt-8">
-                    {HABITACION_INCLUYE.map((s) => (
-                      <li key={s} className="flex items-start gap-3 text-sm text-background/75">
+                    {HABITACION_INCLUYE.map((s, j) => (
+                      <motion.li
+                        key={s}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: Math.min(j * 0.05, 0.4), ease }}
+                        className="flex items-start gap-3 text-sm text-background/75"
+                      >
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                         {s}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
@@ -119,11 +128,18 @@ const Hotel = () => (
       </div>
 
       <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {BENEFICIOS_CORPORATIVOS.map((b) => (
-          <div key={b} className="glass-card p-6 text-sm leading-relaxed text-background/75">
+        {BENEFICIOS_CORPORATIVOS.map((b, i) => (
+          <motion.div
+            key={b}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: Math.min(i * 0.06, 0.4), ease }}
+            className="glass-card p-6 text-sm leading-relaxed text-background/75 transition-transform duration-300 [@media(hover:hover)]:hover:-translate-y-1"
+          >
             <Check className="mb-3 h-4 w-4 text-gold" />
             {b}
-          </div>
+          </motion.div>
         ))}
       </div>
 

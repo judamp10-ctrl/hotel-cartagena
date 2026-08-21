@@ -3,7 +3,7 @@ import equipo from "@/assets/cc-equipo.jpg";
 import { NOSOTROS } from "@/data/cartagenaComfort";
 
 const Nosotros = () => (
-  <section id="nosotros" className="relative scroll-mt-20 py-28 text-background">
+  <section id="nosotros" className="relative scroll-mt-20 py-28 text-background section-fade-top">
     <div className="mx-auto max-w-7xl px-6">
       <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
         <motion.div

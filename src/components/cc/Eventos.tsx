@@ -25,7 +25,7 @@ const scrollToForm = (paquete?: string) => {
 };
 
 const Eventos = () => (
-  <section id="eventos-comfort" className="relative scroll-mt-20 py-28 text-background spotlight-wrap">
+  <section id="eventos-comfort" className="relative scroll-mt-20 py-28 text-background spotlight-wrap section-fade-top">
     <span id="salones" className="absolute -top-20" aria-hidden />
     <div className="mx-auto max-w-7xl px-6">
       <motion.div
@@ -50,7 +50,7 @@ const Eventos = () => (
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: Math.min(i * 0.08, 0.4), ease: [0.22, 1, 0.36, 1] }}
           >
             <Tilt3DCard intensity={7}>
               <figure className="relative h-[340px] overflow-hidden">
@@ -114,11 +114,18 @@ const Eventos = () => (
           </table>
         </div>
         <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-          {SALON_BASE.map((b) => (
-            <span key={b} className="flex items-center gap-2 text-xs text-background/60">
+          {SALON_BASE.map((b, i) => (
+            <motion.span
+              key={b}
+              initial={{ opacity: 0, y: 6 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.4), ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center gap-2 text-xs text-background/60"
+            >
               <Check className="h-3.5 w-3.5 text-gold" />
               {b}
-            </span>
+            </motion.span>
           ))}
         </div>
         <p className="mt-6 max-w-3xl text-xs leading-relaxed text-background/60">
@@ -137,18 +144,25 @@ const Eventos = () => (
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: Math.min(i * 0.1, 0.4), ease: [0.22, 1, 0.36, 1] }}
             >
               <Tilt3DCard variant={i === 2 ? "gold" : "glass"}>
                 <article className="flex h-full flex-col p-10">
                   <h4 className="depth-2 font-serif text-2xl text-background">{p.nombre}</h4>
                   <div className="gold-rule depth-2 mt-5 h-px w-12" />
                   <ul className="depth-1 mt-7 flex-1 space-y-3">
-                    {p.incluye.map((x) => (
-                      <li key={x} className="flex items-start gap-3 text-sm text-background/60">
+                    {p.incluye.map((x, j) => (
+                      <motion.li
+                        key={x}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: Math.min(j * 0.05, 0.4), ease: [0.22, 1, 0.36, 1] }}
+                        className="flex items-start gap-3 text-sm text-background/60"
+                      >
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                         {x}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                   <button

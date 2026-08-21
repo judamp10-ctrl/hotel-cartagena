@@ -231,6 +231,13 @@
   }
   .spotlight-wrap > * { position: relative; z-index: 1; }
 
+  /* Costura suave entre secciones: difumina el contenido que entra
+     por el borde superior, para que el ojo descanse en el corte. */
+  .section-fade-top {
+    mask-image: linear-gradient(to bottom, transparent 0, black 64px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 64px);
+  }
+
   /* ---------- Tarjetas 3D ---------- */
   .tilt-perspective {
     perspective: 1000px;

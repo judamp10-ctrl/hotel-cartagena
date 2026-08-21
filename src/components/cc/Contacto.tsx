@@ -8,7 +8,7 @@ import { CONTACTO } from "@/data/cartagenaComfort";
 const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACTO.direccion)}`;
 
 const Contacto = () => (
-  <footer id="contacto" className="scroll-mt-20 py-24 text-background">
+  <footer id="contacto" className="scroll-mt-20 py-24 text-background section-fade-top">
     <div className="mx-auto max-w-7xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -32,8 +32,8 @@ const Contacto = () => (
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-card p-10"
+            transition={{ duration: 0.8, delay: Math.min(i * 0.1, 0.4), ease: [0.22, 1, 0.36, 1] }}
+            className="glass-card p-10 transition-transform duration-300 [@media(hover:hover)]:hover:-translate-y-1"
           >
             <h3 className="font-serif text-2xl text-gold">{b.titulo}</h3>
             <div className="gold-rule mt-5 h-px w-12" />
@@ -64,7 +64,7 @@ const Contacto = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative block overflow-hidden rounded-sm"
+          className="group relative block overflow-hidden rounded-sm transition-transform duration-300 [@media(hover:hover)]:hover:-translate-y-1"
         >
           <img
             src={mapaUbicacion}
