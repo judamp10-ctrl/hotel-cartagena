@@ -13,6 +13,27 @@ import habitacionDoble from "@/assets/cc-habitacion-doble.webp";
 import habitacionIndividual from "@/assets/cc-habitacion-individual.webp";
 import rincon from "@/assets/cc-rincon.webp";
 import literaGrupal from "@/assets/cc-litera-grupal.webp";
+import logo01 from "@/assets/aliados/logo01.webp";
+import logo02 from "@/assets/aliados/logo02.webp";
+import logo03 from "@/assets/aliados/logo03.webp";
+import logo04 from "@/assets/aliados/logo04.webp";
+import logo05 from "@/assets/aliados/logo05.webp";
+import logo06 from "@/assets/aliados/logo06.webp";
+import logo07 from "@/assets/aliados/logo07.webp";
+import logo08 from "@/assets/aliados/logo08.webp";
+import logo09 from "@/assets/aliados/logo09.webp";
+import logo10 from "@/assets/aliados/logo10.webp";
+import logo11 from "@/assets/aliados/logo11.webp";
+import logo12 from "@/assets/aliados/logo12.webp";
+import logo13 from "@/assets/aliados/logo13.webp";
+import logo14 from "@/assets/aliados/logo14.webp";
+import logo15 from "@/assets/aliados/logo15.webp";
+import logo16 from "@/assets/aliados/logo16.webp";
+import logo17 from "@/assets/aliados/logo17.webp";
+import logo18 from "@/assets/aliados/logo18.webp";
+import logo19 from "@/assets/aliados/logo19.webp";
+import logo20 from "@/assets/aliados/logo20.webp";
+import logo21 from "@/assets/aliados/logo21.webp";
 
 const FILTROS = [
   "Todos",
@@ -40,8 +61,29 @@ const items: { src: string; cat: Filtro; alt: string; tall: boolean }[] = [
   { src: literaGrupal, cat: "Habitaciones", alt: "Habitación con litera para grupos", tall: true },
 ];
 
-// Pendiente: la clienta debe entregar nombres y logos reales de empresas aliadas.
-const aliados = ["01", "02", "03", "04", "05", "06"];
+const ALIADOS = [
+  { src: logo01, alt: "Universidad de San Buenaventura" },
+  { src: logo02, alt: "SLA COL" },
+  { src: logo03, alt: "Meico S.A." },
+  { src: logo04, alt: "Uimiosalud" },
+  { src: logo05, alt: "Equinorte" },
+  { src: logo06, alt: "Coordinadora" },
+  { src: logo07, alt: "Imbera" },
+  { src: logo08, alt: "Kingspan" },
+  { src: logo09, alt: "RTA Muebles" },
+  { src: logo10, alt: "Delfos" },
+  { src: logo11, alt: "Grupo Portafolio Verde" },
+  { src: logo12, alt: "Euro Style Hair Cosmetics" },
+  { src: logo13, alt: "BCD" },
+  { src: logo14, alt: "Inbayan Viajes" },
+  { src: logo15, alt: "Aviatur Sostenible" },
+  { src: logo16, alt: "ANAVA" },
+  { src: logo17, alt: "Molinos del Atlántico - La Nieve" },
+  { src: logo18, alt: "Dispropan" },
+  { src: logo19, alt: "Busscar" },
+  { src: logo20, alt: "Consipe" },
+  { src: logo21, alt: "Procimec" },
+];
 
 const Galeria = () => {
   const [filtro, setFiltro] = useState<Filtro>("Todos");
@@ -103,25 +145,40 @@ const Galeria = () => {
           ))}
         </div>
 
-        <div className="mt-24 border-t border-background/15 pt-14">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-24 border-t border-background/15 pt-14"
+        >
           <p className="label-eyebrow text-center text-background/60">
             Empresas y aliados que confían en nosotros
           </p>
-          <div className="mt-10 grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
-            {aliados.map((a, i) => (
-              <motion.span
-                key={a}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: Math.min(i * 0.05, 0.4), ease: [0.22, 1, 0.36, 1] }}
-                className="flex h-16 items-center justify-center border border-dashed border-background/20 text-center font-serif text-xs text-background/40 grayscale transition-all duration-500 [@media(hover:hover)]:hover:-translate-y-1 hover:border-gold hover:text-gold hover:grayscale-0"
-              >
-                Logo aliado {a}
-              </motion.span>
-            ))}
+          <div className="marquee-viewport mt-10">
+            {/* Cada logo lleva su propio mr-16 (en vez de gap en el track) para que
+                "ancho + margen" sea una unidad fija idéntica en los 42 ítems. Así
+                21 unidades = exactamente la mitad de 42, y translateX(-50%) cae
+                justo en el borde entre las dos copias: loop sin salto visible. */}
+            <div className="marquee-track">
+              {[...ALIADOS, ...ALIADOS].map((aliado, i) => (
+                <div
+                  key={`${aliado.alt}-${i}`}
+                  className={`mr-16 flex h-14 w-32 flex-shrink-0 items-center justify-center sm:h-16 sm:w-40 ${
+                    i >= ALIADOS.length ? "marquee-dup" : ""
+                  }`}
+                >
+                  <img
+                    src={aliado.src}
+                    alt={aliado.alt}
+                    loading="eager"
+                    className="marquee-logo max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
