@@ -19,8 +19,8 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
         <img
           src={heroImg}
           alt="Fachada del Hotel Cartagena Comfort, balcones característicos verde y blanco"
-          width={1920}
-          height={1280}
+          width={1600}
+          height={1764}
           className="photo-treat h-full w-full object-cover"
         />
       </motion.div>
@@ -64,11 +64,20 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
           Hotel &amp; Eventos
         </motion.p>
 
-        <motion.p
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.6, ease }}
-          className="mt-6 max-w-md font-serif text-[clamp(1.7rem,6.5vw,3.2rem)] italic leading-tight text-background/95 text-balance"
+          className="mt-6 max-w-xl font-serif text-[clamp(1.9rem,6.5vw,3.4rem)] italic leading-tight text-background/95 text-balance"
+        >
+          Hotel Cartagena Comfort
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.85, ease }}
+          className="mt-4 text-[0.72rem] font-medium uppercase tracking-[0.32em] text-background/70 md:text-[0.8rem]"
         >
           Confort · Cercanía · Experiencias
         </motion.p>

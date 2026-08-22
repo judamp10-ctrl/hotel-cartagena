@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import bienvenida from "@/assets/cc-bienvenida.webp";
+import recepcion from "@/assets/cc-recepcion.webp";
 import habitacion from "@/assets/cc-habitacion.webp";
 import tarifaSencilla from "@/assets/cc-tarifa-sencilla.webp";
 import tarifaDoble from "@/assets/cc-tarifa-doble.webp";
@@ -63,11 +63,11 @@ const Hotel = () => (
         className="mt-14 overflow-hidden"
       >
         <img
-          src={bienvenida}
+          src={recepcion}
           alt="Recepción del Hotel Cartagena Comfort"
           loading="lazy"
-          width={1200}
-          height={1600}
+          width={1280}
+          height={853}
           className="photo-treat h-[360px] w-full object-cover object-top transition-transform duration-[1.6s] hover:scale-105 md:h-[460px]"
         />
       </motion.figure>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import habitacion from "@/assets/cc-habitacion.webp";
+import bienvenida from "@/assets/cc-bienvenida.webp";
 import bodas from "@/assets/cc-bodas.webp";
 import corporativos from "@/assets/cc-corporativos.webp";
 import sociales from "@/assets/cc-sociales.webp";
@@ -59,6 +60,7 @@ const items: { src: string; cat: Filtro; alt: string; tall: boolean }[] = [
   { src: habitacionIndividual, cat: "Habitaciones", alt: "Habitación individual del hotel", tall: true },
   { src: rincon, cat: "Habitaciones", alt: "Rincón de descanso en el hotel", tall: false },
   { src: literaGrupal, cat: "Habitaciones", alt: "Habitación con litera para grupos", tall: true },
+  { src: bienvenida, cat: "Habitaciones", alt: "Bienvenida en la recepción del hotel", tall: true },
 ];
 
 const ALIADOS = [
