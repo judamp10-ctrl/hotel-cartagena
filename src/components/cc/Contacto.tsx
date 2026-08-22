@@ -1,11 +1,21 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "@/components/cc/Logo";
 import mapaUbicacion from "@/assets/cc-mapa-ubicacion.webp";
 import { CONTACTO } from "@/data/cartagenaComfort";
 
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACTO.direccion)}`;
+// Se incluye el nombre del hotel además de la dirección: una búsqueda de
+// Google Maps con solo la dirección puede resolver a un punto aproximado
+// del barrio en vez del edificio exacto — el nombre ayuda a que caiga en
+// el listado real del negocio.
+// PENDIENTE: no se encontraron coordenadas GPS exactas ni un link de Google
+// Maps verificado en el material entregado. Lo ideal es que la clienta
+// abra Google Maps, confirme el pin correcto y nos pase ese link para
+// reemplazar esta búsqueda por una dirección exacta.
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `Hotel Cartagena Comfort, ${CONTACTO.direccion}`
+)}`;
 
 const Contacto = () => (
   <footer id="contacto" className="scroll-mt-20 py-24 text-background section-fade-top">
@@ -87,15 +97,28 @@ const Contacto = () => (
           <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
           {CONTACTO.direccion}
         </p>
-        <a
-          href={CONTACTO.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 text-sm text-background/70 transition-colors hover:text-gold"
-        >
-          <Instagram className="h-4 w-4 text-gold" />
-          {CONTACTO.instagramHandle}
-        </a>
+        <div className="flex items-center gap-6">
+          <a
+            href={CONTACTO.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-sm text-background/70 transition-colors hover:text-gold"
+          >
+            <Instagram className="h-4 w-4 text-gold" />
+            {CONTACTO.instagramHandle}
+          </a>
+          {CONTACTO.facebook && (
+            <a
+              href={CONTACTO.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-sm text-background/70 transition-colors hover:text-gold"
+            >
+              <Facebook className="h-4 w-4 text-gold" />
+              Facebook
+            </a>
+          )}
+        </div>
       </div>
 
       <div className="mb-16 mt-12 flex flex-col gap-4 border-t border-background/10 pt-8 text-xs text-background/45 md:flex-row md:items-center md:justify-between">

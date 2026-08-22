@@ -11,6 +11,7 @@ import {
   HABITACIONES,
   HABITACION_INCLUYE,
   HOTEL_CAPACIDAD,
+  TARIFA_FIN_DE_SEMANA,
   WA_HOTEL,
 } from "@/data/cartagenaComfort";
 
@@ -51,7 +52,8 @@ const Hotel = () => (
           className="text-sm leading-relaxed text-background/70"
         >
           Todas nuestras acomodaciones incluyen los mismos servicios: colchón semi ortopédico, aire
-          acondicionado, baño privado, televisión, Wi-Fi de alta velocidad y desayuno buffet.
+          acondicionado, baño privado, televisión, Wi-Fi de alta velocidad y desayuno incluido en
+          la tarifa.
         </motion.p>
       </div>
 
@@ -126,6 +128,26 @@ const Hotel = () => (
           </motion.div>
         ))}
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="tilt-card mt-14 overflow-hidden p-8"
+      >
+        <h3 className="font-serif text-xl text-background">Tarifa promocional de fin de semana</h3>
+        <p className="mt-1 text-xs text-background/50">{TARIFA_FIN_DE_SEMANA.vigencia}</p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-3">
+          {TARIFA_FIN_DE_SEMANA.habitaciones.map((h) => (
+            <div key={h.nombre} className="border-t border-background/15 pt-4">
+              <p className="font-serif text-lg text-background">{h.nombre}</p>
+              <p className="text-xs uppercase tracking-widest text-background/50">{h.pax}</p>
+              <p className="mt-2 font-serif text-2xl text-gold">{h.precio}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
 
       <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {BENEFICIOS_CORPORATIVOS.map((b, i) => (

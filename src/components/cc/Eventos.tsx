@@ -89,7 +89,7 @@ const Eventos = () => (
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-background/15 bg-background/[0.07]">
-                {["Salón", "Auditorio", "Aula", "Tipo U", "Valor / hora", "Distintivo"].map((h) => (
+                {["Salón", "Auditorio", "Aula", "Tipo U", "Social", "Distintivo"].map((h) => (
                   <th key={h} className="label-eyebrow px-6 py-4 text-background/60">
                     {h}
                   </th>
@@ -106,7 +106,7 @@ const Eventos = () => (
                   <td className="px-6 py-5">{s.auditorio}</td>
                   <td className="px-6 py-5">{s.aula}</td>
                   <td className="px-6 py-5">{s.tipoU}</td>
-                  <td className="px-6 py-5 font-medium text-gold">{s.valor}</td>
+                  <td className="px-6 py-5">{s.social}</td>
                   <td className="px-6 py-5 text-xs text-background/60">{s.distintivo}</td>
                 </tr>
               ))}
@@ -129,8 +129,8 @@ const Eventos = () => (
           ))}
         </div>
         <p className="mt-6 max-w-3xl text-xs leading-relaxed text-background/60">
-          Las tarifas corresponden al valor base por hora. Los espacios pueden contratarse por el
-          tiempo requerido y están sujetos a descuentos según la cantidad de horas reservadas.
+          Los espacios pueden contratarse por el tiempo requerido. Escríbenos para conocer tarifas y
+          disponibilidad.
         </p>
       </motion.div>
 
@@ -195,7 +195,25 @@ const Eventos = () => (
                 {s.titulo}
               </AccordionTrigger>
               <AccordionContent className="text-sm leading-relaxed text-background/60">
-                {s.texto}
+                <p>{s.texto}</p>
+                {"paquetes" in s && s.paquetes && (
+                  <div className="mt-5 space-y-5">
+                    {s.paquetes.map((p) => (
+                      <div key={p.nombre}>
+                        <p className="font-serif text-base text-gold">{p.nombre}</p>
+                        <p className="mt-1 text-xs text-background/50">{p.texto}</p>
+                        <ul className="mt-3 grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
+                          {p.incluye.map((x) => (
+                            <li key={x} className="flex items-start gap-2 text-xs text-background/60">
+                              <Check className="mt-0.5 h-3 w-3 shrink-0 text-gold" />
+                              {x}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </AccordionContent>
             </AccordionItem>
           ))}

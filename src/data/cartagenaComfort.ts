@@ -7,6 +7,10 @@ export const CONTACTO = {
   direccion: "Troncal de Occidente, Transversal 31 #85-95, Barrio Ternera, Cartagena",
   instagram: "https://instagram.com/hotelcartagenacomfort1",
   instagramHandle: "@hotelcartagenacomfort1",
+  // PENDIENTE: la clienta no ha compartido el link de Facebook. Al llegar,
+  // pegarlo acá — el ícono ya está preparado en Contacto.tsx y solo se
+  // muestra cuando este campo no está vacío.
+  facebook: "",
 };
 
 export const NOSOTROS = {
@@ -85,8 +89,19 @@ export const HABITACION_INCLUYE = [
   "Baño privado",
   "Televisión",
   "Wi-Fi de alta velocidad",
-  "Desayuno buffet incluido",
+  "Desayuno incluido en tarifa",
 ];
+
+// PENDIENTE: la clienta no tiene los valores todavía. Estructura lista
+// para publicar apenas los envíe — reemplazar "Pendiente" por el precio.
+export const TARIFA_FIN_DE_SEMANA = {
+  vigencia: "Viernes a domingo · incluye desayuno · antes de IVA",
+  habitaciones: [
+    { nombre: "Sencilla", pax: "1 persona", precio: "Pendiente" },
+    { nombre: "Doble", pax: "2 personas", precio: "Pendiente" },
+    { nombre: "Triple", pax: "3 personas", precio: "Pendiente" },
+  ],
+};
 
 export const BENEFICIOS_CORPORATIVOS = [
   "Convenios empresariales con tarifas preferenciales",
@@ -96,13 +111,22 @@ export const BENEFICIOS_CORPORATIVOS = [
 ];
 
 
-// Precios confirmados por la clienta.
+// Precios confirmados por la clienta. La columna "Valor" se conserva en los
+// datos (la usa Cotizar/CotizarModal) pero ya no se muestra en la tabla
+// pública, por pedido de la clienta.
+//
+// NOTA: el portafolio PDF entregado trae capacidades distintas para dos
+// salones (Olimpo aula: 80, Cartagena Comfort auditorio: 500) a las que la
+// clienta confirmó directamente en el lote anterior (aula: 70, auditorio:
+// 600). Se mantienen los números que ella confirmó por ser la fuente más
+// reciente — PENDIENTE que ella confirme cuál es el correcto.
 export const SALONES = [
   {
     nombre: "Galeón",
     auditorio: 100,
     aula: 40,
     tipoU: 35,
+    social: "Pendiente",
     valor: "$300.000",
     distintivo: "Práctico · Funcional · Versátil",
   },
@@ -111,6 +135,7 @@ export const SALONES = [
     auditorio: 100,
     aula: 40,
     tipoU: 35,
+    social: "Pendiente",
     valor: "$400.000",
     distintivo: "Privado · Acogedor — incluye Ante Sala",
   },
@@ -119,6 +144,7 @@ export const SALONES = [
     auditorio: 250,
     aula: 70,
     tipoU: 65,
+    social: "Pendiente",
     valor: "$470.000",
     distintivo: "Amplio · Accesible · Estratégico",
   },
@@ -127,6 +153,7 @@ export const SALONES = [
     auditorio: 600,
     aula: 150,
     tipoU: 100,
+    social: "Pendiente",
     valor: "$800.000",
     distintivo: "Imponente · Multifuncional — Video Beam + Tarima",
   },
@@ -137,8 +164,21 @@ export const SALONES = [
     auditorio: 50,
     aula: 25,
     tipoU: 20,
+    social: "Pendiente",
     valor: "Consultar",
     distintivo: "Registro · Coffee break · Reuniones privadas",
+  },
+  // PENDIENTE: la clienta dice haber enviado las capacidades de este salón,
+  // pero no aparecen en ningún documento ni mensaje recibido. Pedirlas de
+  // nuevo antes de publicar valores reales.
+  {
+    nombre: "Stephanie",
+    auditorio: "Pendiente",
+    aula: "Pendiente",
+    tipoU: "Pendiente",
+    social: "Pendiente",
+    valor: "Consultar",
+    distintivo: "Pendiente confirmar con la clienta",
   },
 ];
 
@@ -224,11 +264,84 @@ export const SERVICIOS_EXTRA = [
   },
   {
     titulo: "Decoración",
-    texto: "Paquetes Clasic, Elegance y Temático, ajustados al concepto de cada celebración.",
+    texto: "Tres niveles de decoración, del más esencial al diseño exclusivo a medida.",
+    paquetes: [
+      {
+        nombre: "Clasic",
+        texto: "Decoración esencial para eventos íntimos y funcionales.",
+        incluye: [
+          "Centros de mesa bajos",
+          "Identificadores de mesa",
+          "Estructuras decorativas",
+          "Arco en globos",
+          "Mesas decorativas",
+          "Número 15 iluminado o palabra LOVE iluminada",
+          "Silla Luis XV",
+        ],
+      },
+      {
+        nombre: "Elegance",
+        texto: "Decoración sofisticada con mayor nivel de detalle y ambientación.",
+        incluye: [
+          "Centros de mesa altos",
+          "Identificadores de mesa",
+          "Estructuras decorativas",
+          "Arco floral",
+          "Mesas decorativas",
+          "Número 15 iluminado o palabra LOVE iluminada",
+          "Silla Luis XV",
+        ],
+      },
+      {
+        nombre: "Temático",
+        texto: "Diseño exclusivo adaptado a la temática, gustos y necesidades del cliente.",
+        incluye: [
+          "Diseño exclusivo según temática, colores y requerimientos",
+          "Selección personalizada de flores, mobiliario y elementos decorativos",
+          "Propuesta única adaptada al evento",
+        ],
+      },
+    ],
   },
   {
     titulo: "Producción e iluminación",
-    texto: "Paquetes Oro, Plata y Bronce de producción técnica e iluminación escénica.",
+    texto: "Tres niveles de producción técnica e iluminación escénica.",
+    paquetes: [
+      {
+        nombre: "Oro",
+        texto: "La máxima experiencia en producción y entretenimiento.",
+        incluye: [
+          "Maestro de ceremonia",
+          "DJ profesional",
+          "Pantalla LED",
+          "Tarima",
+          "4 luces robóticas",
+          "Truss",
+          "Pista de baile",
+          "Humo bajo",
+          "2 volcanes",
+          "Ventury",
+        ],
+      },
+      {
+        nombre: "Plata",
+        texto: "Una experiencia más impactante con iluminación y efectos especiales mejorados.",
+        incluye: [
+          "Maestro de ceremonia",
+          "DJ profesional",
+          "Tarima",
+          "Pista de baile",
+          "Cámara de humo",
+          "2 volcanes",
+          "Ventury",
+        ],
+      },
+      {
+        nombre: "Bronce",
+        texto: "Producción esencial para eventos con estilo, diversión y excelente ambientación.",
+        incluye: ["Maestro de ceremonia", "DJ profesional", "Pista de baile", "Tarima"],
+      },
+    ],
   },
   {
     titulo: "Corporativo",

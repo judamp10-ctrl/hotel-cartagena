@@ -304,7 +304,7 @@
     align-items: center;
     width: max-content;
     will-change: transform;
-    animation: marquee-scroll 38s linear infinite;
+    animation: marquee-scroll 46s linear infinite;
   }
 
   /* Se pausa al pasar el mouse (desktop) o al mantener presionado (táctil) */

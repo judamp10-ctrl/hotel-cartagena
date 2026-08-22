@@ -34,9 +34,6 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
         className="absolute left-6 top-7 z-20 flex items-center gap-4 md:left-10"
       >
         <Logo priority className="h-10 w-auto md:h-11" />
-        <span className="hidden text-[0.6rem] font-medium uppercase tracking-[0.42em] text-background/70 sm:inline">
-          Cartagena, Col.
-        </span>
       </motion.div>
 
 
@@ -68,7 +65,7 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.6, ease }}
-          className="mt-6 max-w-xl font-serif text-[clamp(1.9rem,6.5vw,3.4rem)] italic leading-tight text-background/95 text-balance"
+          className="mt-6 whitespace-nowrap font-serif text-[clamp(1.5rem,7.4vw,4.6rem)] italic leading-tight text-background/95"
         >
           Hotel Cartagena Comfort
         </motion.h1>

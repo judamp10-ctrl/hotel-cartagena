@@ -71,7 +71,7 @@ const Index = () => {
             <Cotizar />
           </>
         )}
-        <Galeria />
+        <Galeria view={view} />
         <Contacto />
       </motion.main>
 
