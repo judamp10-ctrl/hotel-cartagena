@@ -92,17 +92,6 @@ export const HABITACION_INCLUYE = [
   "Desayuno incluido en tarifa",
 ];
 
-// PENDIENTE: la clienta no tiene los valores todavía. Estructura lista
-// para publicar apenas los envíe — reemplazar "Pendiente" por el precio.
-export const TARIFA_FIN_DE_SEMANA = {
-  vigencia: "Viernes a domingo · incluye desayuno · antes de IVA",
-  habitaciones: [
-    { nombre: "Sencilla", pax: "1 persona", precio: "Pendiente" },
-    { nombre: "Doble", pax: "2 personas", precio: "Pendiente" },
-    { nombre: "Triple", pax: "3 personas", precio: "Pendiente" },
-  ],
-};
-
 export const BENEFICIOS_CORPORATIVOS = [
   "Convenios empresariales con tarifas preferenciales",
   "Condiciones especiales para grupos y delegaciones",
@@ -120,6 +109,16 @@ export const BENEFICIOS_CORPORATIVOS = [
 // clienta confirmó directamente en el lote anterior (aula: 70, auditorio:
 // 600). Se mantienen los números que ella confirmó por ser la fuente más
 // reciente — PENDIENTE que ella confirme cuál es el correcto.
+//
+// "partes" describe cómo se divide un salón en espacios más chicos. El
+// total de la fila SIEMPRE es el dato principal en la tabla; las partes se
+// muestran como detalle expandible.
+//
+// NOTA (JeanPaul y Stephanie): la suma de "aula" en las partes no cuadra
+// exactamente con el total que confirmó la clienta (JeanPaul: 12+70=82 vs
+// 80 confirmado; Stephanie: 8+70+70=148 vs 150 confirmado) — diferencia de
+// 2 en ambos casos. Se muestran los números tal como los envió — PENDIENTE
+// que ella confirme el valor correcto de "aula" en las partes.
 export const SALONES = [
   {
     nombre: "Galeón",
@@ -132,12 +131,16 @@ export const SALONES = [
   },
   {
     nombre: "JeanPaul",
-    auditorio: 100,
-    aula: 40,
-    tipoU: 35,
-    social: "Pendiente",
+    auditorio: 130,
+    aula: 80,
+    tipoU: 60,
+    social: 70,
     valor: "$400.000",
-    distintivo: "Privado · Acogedor — incluye Ante Sala",
+    distintivo: "Privado · Acogedor · Dinámico — incluye Ante Sala, divisible en 2 espacios",
+    partes: [
+      { nombre: "Parte A", auditorio: 30, aula: 12, tipoU: 20 },
+      { nombre: "Parte B", auditorio: 100, aula: 70, tipoU: 40 },
+    ],
   },
   {
     nombre: "Olimpo",
@@ -157,28 +160,19 @@ export const SALONES = [
     valor: "$800.000",
     distintivo: "Imponente · Multifuncional — Video Beam + Tarima",
   },
-  // Este salón no aparece en ningún documento entregado por la clienta.
-  // PENDIENTE VERIFICAR CON CLIENTE si existe y sus datos son correctos.
-  {
-    nombre: "Ante Sala JeanPaul",
-    auditorio: 50,
-    aula: 25,
-    tipoU: 20,
-    social: "Pendiente",
-    valor: "Consultar",
-    distintivo: "Registro · Coffee break · Reuniones privadas",
-  },
-  // PENDIENTE: la clienta dice haber enviado las capacidades de este salón,
-  // pero no aparecen en ningún documento ni mensaje recibido. Pedirlas de
-  // nuevo antes de publicar valores reales.
   {
     nombre: "Stephanie",
-    auditorio: "Pendiente",
-    aula: "Pendiente",
-    tipoU: "Pendiente",
-    social: "Pendiente",
+    auditorio: 190,
+    aula: 150,
+    tipoU: 120,
+    social: 120,
     valor: "Consultar",
-    distintivo: "Pendiente confirmar con la clienta",
+    distintivo: "Versátil · Flexible — divisible en 3 espacios",
+    partes: [
+      { nombre: "Parte A", auditorio: 30, aula: 8, tipoU: 20 },
+      { nombre: "Parte B", auditorio: 80, aula: 70, tipoU: 50 },
+      { nombre: "Parte C", auditorio: 80, aula: 70, tipoU: 50 },
+    ],
   },
 ];
 
@@ -208,6 +202,7 @@ export const SALON_BASE = [
   "Mesa principal y recepción",
   "Estación de agua y café",
   "Parqueadero privado",
+  "Sonido y micrófono",
   "Aire acondicionado",
   "Sillas tipo Rimax",
   "Wi-Fi",

@@ -1,5 +1,6 @@
+import { Fragment, useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -24,7 +25,10 @@ const scrollToForm = (paquete?: string) => {
   document.getElementById("cotizar")?.scrollIntoView({ behavior: "smooth" });
 };
 
-const Eventos = () => (
+const Eventos = () => {
+  const [abierto, setAbierto] = useState<string | null>(null);
+
+  return (
   <section id="eventos-comfort" className="relative scroll-mt-20 py-28 text-background spotlight-wrap section-fade-top">
     <span id="salones" className="absolute -top-20" aria-hidden />
     <div className="mx-auto max-w-7xl px-6">
@@ -89,6 +93,7 @@ const Eventos = () => (
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-background/15 bg-background/[0.07]">
+                <th className="label-eyebrow px-6 py-4 text-background/60" />
                 {["Salón", "Auditorio", "Aula", "Tipo U", "Social", "Distintivo"].map((h) => (
                   <th key={h} className="label-eyebrow px-6 py-4 text-background/60">
                     {h}
@@ -97,19 +102,51 @@ const Eventos = () => (
               </tr>
             </thead>
             <tbody>
-              {SALONES.map((s) => (
-                <tr
-                  key={s.nombre}
-                  className="border-b border-background/15 transition-colors last:border-0 hover:bg-background/[0.05]"
-                >
-                  <td className="px-6 py-5 font-serif text-lg text-background">{s.nombre}</td>
-                  <td className="px-6 py-5">{s.auditorio}</td>
-                  <td className="px-6 py-5">{s.aula}</td>
-                  <td className="px-6 py-5">{s.tipoU}</td>
-                  <td className="px-6 py-5">{s.social}</td>
-                  <td className="px-6 py-5 text-xs text-background/60">{s.distintivo}</td>
-                </tr>
-              ))}
+              {SALONES.map((s) => {
+                const divisible = "partes" in s && s.partes;
+                const expandido = abierto === s.nombre;
+                return (
+                  <Fragment key={s.nombre}>
+                    <tr
+                      onClick={() => divisible && setAbierto(expandido ? null : s.nombre)}
+                      className={`border-b border-background/15 transition-colors ${
+                        expandido ? "" : "last:border-0"
+                      } hover:bg-background/[0.05] ${divisible ? "cursor-pointer" : ""}`}
+                    >
+                      <td className="px-3 py-5 text-background/50">
+                        {divisible && (
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform duration-300 ${expandido ? "rotate-180" : ""}`}
+                          />
+                        )}
+                      </td>
+                      <td className="px-6 py-5 font-serif text-lg text-background">{s.nombre}</td>
+                      <td className="px-6 py-5">{s.auditorio}</td>
+                      <td className="px-6 py-5">{s.aula}</td>
+                      <td className="px-6 py-5">{s.tipoU}</td>
+                      <td className="px-6 py-5">{s.social}</td>
+                      <td className="px-6 py-5 text-xs text-background/60">{s.distintivo}</td>
+                    </tr>
+                    {divisible && expandido && (
+                      <tr className="border-b border-background/15 bg-background/[0.04] last:border-0">
+                        <td colSpan={7} className="px-6 py-5">
+                          <p className="label-eyebrow text-background/45">Se divide en espacios más chicos</p>
+                          <div className="mt-3 grid gap-4 sm:grid-cols-3">
+                            {s.partes!.map((p) => (
+                              <div key={p.nombre} className="border-l border-gold/40 pl-4">
+                                <p className="text-sm text-background">{p.nombre}</p>
+                                <p className="mt-1 text-xs text-background/60">
+                                  Auditorio {p.auditorio} · Aula {p.aula} · Tipo U {p.tipoU}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </Fragment>
+                );
+              })}
             </tbody>
           </table>
         </div>
@@ -221,6 +258,7 @@ const Eventos = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default Eventos;

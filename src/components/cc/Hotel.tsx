@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import recepcion from "@/assets/cc-recepcion.webp";
+import lounge from "@/assets/cc-lounge.webp";
 import habitacion from "@/assets/cc-habitacion.webp";
 import tarifaSencilla from "@/assets/cc-tarifa-sencilla.webp";
 import tarifaDoble from "@/assets/cc-tarifa-doble.webp";
@@ -11,7 +11,6 @@ import {
   HABITACIONES,
   HABITACION_INCLUYE,
   HOTEL_CAPACIDAD,
-  TARIFA_FIN_DE_SEMANA,
   WA_HOTEL,
 } from "@/data/cartagenaComfort";
 
@@ -65,12 +64,12 @@ const Hotel = () => (
         className="mt-14 overflow-hidden"
       >
         <img
-          src={recepcion}
-          alt="Recepción del Hotel Cartagena Comfort"
+          src={lounge}
+          alt="Sala de estar del Hotel Cartagena Comfort"
           loading="lazy"
-          width={1280}
-          height={853}
-          className="photo-treat h-[360px] w-full object-cover object-top transition-transform duration-[1.6s] hover:scale-105 md:h-[460px]"
+          width={1600}
+          height={1067}
+          className="photo-treat h-[360px] w-full object-cover transition-transform duration-[1.6s] hover:scale-105 md:h-[460px]"
         />
       </motion.figure>
 
@@ -129,25 +128,28 @@ const Hotel = () => (
         ))}
       </div>
 
-      <motion.div
+      <motion.a
+        href={`https://wa.me/${WA_HOTEL}?text=${encodeURIComponent(
+          "Hola, quiero saber las tarifas promocionales de fin de semana"
+        )}`}
+        target="_blank"
+        rel="noopener noreferrer"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="tilt-card mt-14 overflow-hidden p-8"
+        className="group tilt-card tilt-card-gold mt-14 flex flex-col items-start gap-4 overflow-hidden p-8 transition-transform duration-300 [@media(hover:hover)]:hover:-translate-y-1 sm:flex-row sm:items-center sm:justify-between"
       >
-        <h3 className="font-serif text-xl text-background">Tarifa promocional de fin de semana</h3>
-        <p className="mt-1 text-xs text-background/50">{TARIFA_FIN_DE_SEMANA.vigencia}</p>
-        <div className="mt-6 grid gap-6 sm:grid-cols-3">
-          {TARIFA_FIN_DE_SEMANA.habitaciones.map((h) => (
-            <div key={h.nombre} className="border-t border-background/15 pt-4">
-              <p className="font-serif text-lg text-background">{h.nombre}</p>
-              <p className="text-xs uppercase tracking-widest text-background/50">{h.pax}</p>
-              <p className="mt-2 font-serif text-2xl text-gold">{h.precio}</p>
-            </div>
-          ))}
+        <div>
+          <h3 className="font-serif text-xl text-background">Tarifa promocional de fin de semana</h3>
+          <p className="mt-1 text-xs text-background/60">
+            Viernes a domingo · incluye desayuno · pregúntanos por WhatsApp
+          </p>
         </div>
-      </motion.div>
+        <span className="label-eyebrow shrink-0 border border-gold/60 px-8 py-4 text-background transition-colors duration-500 group-hover:bg-gold">
+          Pregunta por nuestras tarifas →
+        </span>
+      </motion.a>
 
       <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {BENEFICIOS_CORPORATIVOS.map((b, i) => (

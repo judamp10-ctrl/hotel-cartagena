@@ -68,20 +68,19 @@ const HeroEventos = ({ onCotizar, onSwitch }: Props) => {
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.4, ease }}
-          className="mt-6 font-serif uppercase leading-[0.88] tracking-tighter text-background/95 text-balance text-[clamp(2.6rem,11vw,9rem)]"
+          transition={{ duration: 1.4, delay: 0.6, ease }}
+          className="mt-6 whitespace-nowrap font-serif text-[clamp(1.5rem,7.4vw,4.6rem)] italic leading-tight text-background/95"
         >
-          <span className="block">Salones</span>
-          <span className="block">&amp; Convenciones</span>
+          Salones &amp; Convenciones
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.3, delay: 0.8, ease }}
-          className="mt-8 font-sans text-[0.95rem] font-light italic tracking-wide text-background/75 md:text-lg"
+          transition={{ duration: 1.2, delay: 0.85, ease }}
+          className="mt-4 text-[0.68rem] font-medium uppercase tracking-[0.38em] text-background/70 md:text-[0.78rem]"
         >
           Logística · Capacidad · Precisión
         </motion.p>
