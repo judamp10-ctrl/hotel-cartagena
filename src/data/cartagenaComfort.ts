@@ -106,12 +106,6 @@ export const BENEFICIOS_CORPORATIVOS = [
 // datos (la usa Cotizar/CotizarModal) pero ya no se muestra en la tabla
 // pública, por pedido de la clienta.
 //
-// NOTA: el portafolio PDF entregado trae capacidades distintas para dos
-// salones (Olimpo aula: 80, Cartagena Comfort auditorio: 500) a las que la
-// clienta confirmó directamente en el lote anterior (aula: 70, auditorio:
-// 600). Se mantienen los números que ella confirmó por ser la fuente más
-// reciente — PENDIENTE que ella confirme cuál es el correcto.
-//
 // "partes" describe cómo se divide un salón en espacios más chicos. El
 // total de la fila SIEMPRE es el dato principal en la tabla; las partes se
 // muestran como detalle expandible.
@@ -146,7 +140,7 @@ export const SALONES = [
   {
     nombre: "Olimpo",
     auditorio: 250,
-    aula: 70,
+    aula: 80,
     tipoU: 65,
     social: "Pendiente",
     valor: "$470.000",
