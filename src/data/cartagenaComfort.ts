@@ -7,10 +7,12 @@ export const CONTACTO = {
   direccion: "Troncal de Occidente, Transversal 31 #85-95, Barrio Ternera, Cartagena",
   instagram: "https://instagram.com/hotelcartagenacomfort1",
   instagramHandle: "@hotelcartagenacomfort1",
-  // PENDIENTE: la clienta no ha compartido el link de Facebook. Al llegar,
-  // pegarlo acá — el ícono ya está preparado en Contacto.tsx y solo se
-  // muestra cuando este campo no está vacío.
-  facebook: "",
+  facebook: "https://www.facebook.com/eventoscartagenacomfort",
+  // Resuelto desde el shortlink que compartió la clienta
+  // (maps.app.goo.gl/df5SJmksZ8Y73i2X8), coordenadas exactas del pin:
+  // 10.382839, -75.4665448. Se usa un link limpio (sin tokens de sesión
+  // ni parámetros de rastreo) para no depender de un redirect.
+  mapsUrl: "https://www.google.com/maps/place/Hotel+%26+Eventos+Cartagena+Comfort/@10.382839,-75.4665448,17z",
 };
 
 export const NOSOTROS = {
@@ -114,11 +116,10 @@ export const BENEFICIOS_CORPORATIVOS = [
 // total de la fila SIEMPRE es el dato principal en la tabla; las partes se
 // muestran como detalle expandible.
 //
-// NOTA (JeanPaul y Stephanie): la suma de "aula" en las partes no cuadra
-// exactamente con el total que confirmó la clienta (JeanPaul: 12+70=82 vs
-// 80 confirmado; Stephanie: 8+70+70=148 vs 150 confirmado) — diferencia de
-// 2 en ambos casos. Se muestran los números tal como los envió — PENDIENTE
-// que ella confirme el valor correcto de "aula" en las partes.
+// Aula de JeanPaul y Stephanie: la clienta resolvió la diferencia entre el
+// total y la suma de las partes — quedó el número mayor en cada caso
+// (JeanPaul: 82, la suma de las partes; Stephanie: 150, el total que ella
+// ya había confirmado).
 export const SALONES = [
   {
     nombre: "Galeón",
@@ -132,7 +133,7 @@ export const SALONES = [
   {
     nombre: "JeanPaul",
     auditorio: 130,
-    aula: 80,
+    aula: 82,
     tipoU: 60,
     social: 70,
     valor: "$400.000",

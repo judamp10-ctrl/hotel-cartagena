@@ -5,18 +5,6 @@ import Logo from "@/components/cc/Logo";
 import mapaUbicacion from "@/assets/cc-mapa-ubicacion.webp";
 import { CONTACTO } from "@/data/cartagenaComfort";
 
-// Se incluye el nombre del hotel además de la dirección: una búsqueda de
-// Google Maps con solo la dirección puede resolver a un punto aproximado
-// del barrio en vez del edificio exacto — el nombre ayuda a que caiga en
-// el listado real del negocio.
-// PENDIENTE: no se encontraron coordenadas GPS exactas ni un link de Google
-// Maps verificado en el material entregado. Lo ideal es que la clienta
-// abra Google Maps, confirme el pin correcto y nos pase ese link para
-// reemplazar esta búsqueda por una dirección exacta.
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `Hotel Cartagena Comfort, ${CONTACTO.direccion}`
-)}`;
-
 const Contacto = () => (
   <footer id="contacto" className="scroll-mt-20 py-24 text-background section-fade-top">
     <div className="mx-auto max-w-7xl px-6">
@@ -67,7 +55,7 @@ const Contacto = () => (
         ))}
 
         <motion.a
-          href={MAPS_URL}
+          href={CONTACTO.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 28 }}
