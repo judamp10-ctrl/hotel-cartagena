@@ -188,7 +188,7 @@ const Galeria = ({ view }: Props) => {
               {[...ALIADOS, ...ALIADOS].map((aliado, i) => (
                 <div
                   key={`${aliado.alt}-${i}`}
-                  className={`mr-16 flex h-20 w-44 flex-shrink-0 items-center justify-center sm:h-24 sm:w-56 ${
+                  className={`mr-16 flex h-28 w-56 flex-shrink-0 items-center justify-center sm:h-32 sm:w-72 ${
                     i >= ALIADOS.length ? "marquee-dup" : ""
                   }`}
                 >
