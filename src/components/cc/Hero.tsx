@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import heroImg from "@/assets/cc-hero.webp";
 import lobbyVidrio from "@/assets/cc-lobby-vidrio.webp";
 import lounge from "@/assets/cc-lounge.webp";
 import habitacionDoble from "@/assets/cc-habitacion-doble.webp";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// La fachada (con los cables en la foto) se suma como primera diapositiva
-// una vez la clienta apruebe el retoque. Mientras tanto arranca con el
-// lobby, que es la más luminosa de las tres.
+// La fachada va primera: es la identificación del lugar. El recorte excluye
+// los cables de luz que cruzaban el cielo y el poste junto al árbol (recorte
+// en vez de retoque, para no publicar un parche visible).
 const SLIDES = [
+  { src: heroImg, alt: "Fachada del Hotel Cartagena Comfort, balcones característicos verde y blanco" },
   { src: lobbyVidrio, alt: "Lobby luminoso del Hotel Cartagena Comfort" },
   { src: lounge, alt: "Sala de estar del Hotel Cartagena Comfort" },
   { src: habitacionDoble, alt: "Habitación doble del Hotel Cartagena Comfort" },
