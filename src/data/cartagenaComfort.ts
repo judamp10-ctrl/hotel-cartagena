@@ -17,9 +17,7 @@ export const CONTACTO = {
 
 export const NOSOTROS = {
   texto: [
-    "En Cartagena Comfort Hotel & Eventos ofrecemos soluciones integrales de hospedaje y eventos para empresas, grupos, organizaciones y visitantes que buscan comodidad, atención personalizada y espacios funcionales en Cartagena.",
-    "Contamos con 36 habitaciones y 5 salones para eventos con capacidad hasta para 600 asistentes, diseñados para adaptarse a diferentes necesidades, desde estadías corporativas y grupos turísticos hasta reuniones empresariales, capacitaciones, congresos y celebraciones especiales.",
-    "Nos distinguimos por brindar una experiencia cercana, eficiente y confiable, respaldada por un equipo comprometido con la calidad del servicio y el bienestar de nuestros huéspedes y clientes.",
+    "En Cartagena Comfort combinamos hospedaje y eventos en un mismo lugar: 36 habitaciones y 5 salones con capacidad hasta para 600 personas, pensados para empresas, grupos y visitantes que buscan comodidad y atención cercana en Cartagena.",
   ],
 };
 

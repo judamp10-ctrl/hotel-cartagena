@@ -1,13 +1,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/cc-hero.webp";
-import Logo from "@/components/cc/Logo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type Props = { onCotizar: () => void; onSwitch: () => void };
+type Props = { onSwitch: () => void };
 
-const Hero = ({ onCotizar, onSwitch }: Props) => {
+const Hero = ({ onSwitch }: Props) => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 800], [0, 160]);
   const scale = useTransform(scrollY, [0, 800], [1.05, 1.18]);
@@ -25,28 +24,6 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
         />
       </motion.div>
       <div className="absolute inset-0 hero-overlay" />
-
-      <motion.div
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 1.2, ease }}
-        style={{ opacity }}
-        className="absolute left-6 top-7 z-20 flex items-center gap-4 md:left-10"
-      >
-        <Logo priority className="h-10 w-auto md:h-11" />
-      </motion.div>
-
-
-      <motion.button
-        onClick={onCotizar}
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 1.3, ease }}
-        style={{ opacity }}
-        className="absolute right-6 top-8 z-20 text-[0.6rem] font-medium uppercase tracking-[0.42em] text-background transition-colors hover:text-gold-soft md:right-10"
-      >
-        Cotizar
-      </motion.button>
 
       <motion.div
         style={{ opacity }}
@@ -76,7 +53,7 @@ const Hero = ({ onCotizar, onSwitch }: Props) => {
           transition={{ duration: 1.2, delay: 0.85, ease }}
           className="mt-4 text-[0.72rem] font-medium uppercase tracking-[0.32em] text-background/70 md:text-[0.8rem]"
         >
-          Confort · Cercanía · Experiencias
+          Comfort · Cercanía · Experiencias
         </motion.p>
 
 

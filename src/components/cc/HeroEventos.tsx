@@ -1,13 +1,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import heroImg from "@/assets/cc-hero-eventos.webp";
-import Logo from "@/components/cc/Logo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type Props = { onCotizar: () => void; onSwitch: () => void };
+type Props = { onSwitch: () => void };
 
-const HeroEventos = ({ onCotizar, onSwitch }: Props) => {
+const HeroEventos = ({ onSwitch }: Props) => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 800], [0, 160]);
   const scale = useTransform(scrollY, [0, 800], [1.05, 1.18]);
@@ -28,31 +27,6 @@ const HeroEventos = ({ onCotizar, onSwitch }: Props) => {
         />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(224_45%_5%_/_0.8)] via-[hsl(222_45%_6%_/_0.55)] to-[hsl(224_45%_4%_/_0.92)]" />
-
-      <motion.div
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 1.1, ease }}
-        style={{ opacity }}
-        className="absolute left-6 top-7 z-20 flex items-center gap-4 md:left-10"
-      >
-        <Logo priority className="h-10 w-auto md:h-11" />
-        <span className="hidden text-[0.6rem] font-medium uppercase tracking-[0.42em] text-background/70 sm:inline">
-          Ala corporativa
-        </span>
-      </motion.div>
-
-
-      <motion.button
-        onClick={onCotizar}
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 1.2, ease }}
-        style={{ opacity }}
-        className="absolute right-6 top-8 z-20 text-[0.6rem] font-medium uppercase tracking-[0.42em] text-background transition-colors hover:text-gold-soft md:right-10"
-      >
-        Cotizar
-      </motion.button>
 
       <motion.div
         style={{ opacity }}

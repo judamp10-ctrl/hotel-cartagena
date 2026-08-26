@@ -10,7 +10,7 @@ import Cotizar from "@/components/cc/Cotizar";
 import Galeria from "@/components/cc/Galeria";
 import Contacto from "@/components/cc/Contacto";
 import WhatsAppFab from "@/components/cc/WhatsAppFab";
-import BottomNav, { NavLink } from "@/components/cc/BottomNav";
+import TopNav, { NavLink } from "@/components/cc/TopNav";
 import CotizarModal from "@/components/cc/CotizarModal";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
@@ -18,17 +18,14 @@ const LINKS: Record<"hotel" | "eventos", NavLink[]> = {
   hotel: [
     { id: "hotel-comfort", label: "Hotel Comfort" },
     { id: "galeria", label: "Galería" },
-    { id: "contacto", label: "Contacto" },
-    { id: "inicio", label: "Inicio" },
     { id: "nosotros", label: "Nosotros" },
-    { id: "valores", label: "El cambio" },
+    { id: "valores", label: "El Cambio" },
+    { id: "contacto", label: "Contacto" },
   ],
   eventos: [
     { id: "eventos-comfort", label: "Eventos Comfort" },
     { id: "galeria", label: "Galería" },
     { id: "contacto", label: "Contacto" },
-    { id: "inicio", label: "Inicio" },
-    { id: "cotizar", label: "Cotizar" },
   ],
 };
 
@@ -59,14 +56,14 @@ const Index = () => {
       >
         {view === "hotel" ? (
           <>
-            <Hero onCotizar={() => setModal(true)} onSwitch={switchView} />
+            <Hero onSwitch={switchView} />
             <Nosotros />
             <Valores />
             <Hotel />
           </>
         ) : (
           <>
-            <HeroEventos onCotizar={() => setModal(true)} onSwitch={switchView} />
+            <HeroEventos onSwitch={switchView} />
             <Eventos />
             <Cotizar />
           </>
@@ -75,11 +72,12 @@ const Index = () => {
         <Contacto />
       </motion.main>
 
-      <BottomNav
+      <TopNav
         links={links}
         active={active}
         switchLabel={view === "hotel" ? "Ir a Eventos Comfort →" : "← Ir a Hotel Comfort"}
         onSwitch={switchView}
+        onCotizar={() => setModal(true)}
       />
       <CotizarModal
         open={modal}
