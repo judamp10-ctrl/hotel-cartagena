@@ -1,8 +1,22 @@
+import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/cc-hero.webp";
+import lobbyVidrio from "@/assets/cc-lobby-vidrio.webp";
+import lounge from "@/assets/cc-lounge.webp";
+import habitacionDoble from "@/assets/cc-habitacion-doble.webp";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+// La fachada (con los cables en la foto) se suma como primera diapositiva
+// una vez la clienta apruebe el retoque. Mientras tanto arranca con el
+// lobby, que es la más luminosa de las tres.
+const SLIDES = [
+  { src: lobbyVidrio, alt: "Lobby luminoso del Hotel Cartagena Comfort" },
+  { src: lounge, alt: "Sala de estar del Hotel Cartagena Comfort" },
+  { src: habitacionDoble, alt: "Habitación doble del Hotel Cartagena Comfort" },
+];
+
+const SLIDE_DURATION = 6000;
 
 type Props = { onSwitch: () => void };
 
@@ -12,16 +26,30 @@ const Hero = ({ onSwitch }: Props) => {
   const scale = useTransform(scrollY, [0, 800], [1.05, 1.18]);
   const opacity = useTransform(scrollY, [0, 480], [1, 0]);
 
+  const [slide, setSlide] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => {
+      setSlide((s) => (s + 1) % SLIDES.length);
+    }, SLIDE_DURATION);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="inicio" className="relative h-[100svh] w-full overflow-hidden bg-ink">
       <motion.div style={{ y, scale }} className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Fachada del Hotel Cartagena Comfort, balcones característicos verde y blanco"
-          width={1600}
-          height={1764}
-          className="photo-treat h-full w-full object-cover"
-        />
+        {SLIDES.map((s, i) => (
+          <img
+            key={s.src}
+            src={s.src}
+            alt={s.alt}
+            loading={i === 0 ? "eager" : "lazy"}
+            className={`photo-treat absolute inset-0 h-full w-full object-cover transition-opacity duration-[1.6s] ease-in-out ${
+              i === slide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
       </motion.div>
       <div className="absolute inset-0 hero-overlay" />
 
