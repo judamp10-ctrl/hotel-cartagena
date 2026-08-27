@@ -1,8 +1,24 @@
+import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import heroImg from "@/assets/cc-hero-eventos.webp";
+import heroGala from "@/assets/cc-hero-eventos.webp";
+import bodas from "@/assets/cc-bodas.webp";
+import tematicos from "@/assets/cc-tematicos.webp";
+import mesaElegante from "@/assets/cc-mesa-elegante.webp";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+// Las 4 comparten paleta cálida (dorado/blush) a propósito — se descartó
+// cc-corporativos.webp (auditorio con luz azul) para no saltar de frío a
+// cálido entre diapositivas.
+const SLIDES = [
+  { src: heroGala, alt: "Salón corporativo del centro de eventos Cartagena Comfort" },
+  { src: bodas, alt: "Torta de boda con rosas en Cartagena Comfort" },
+  { src: tematicos, alt: "Quinceañero temático con decoración de flores y luces" },
+  { src: mesaElegante, alt: "Montaje de mesa elegante con centro de flores" },
+];
+
+const SLIDE_DURATION = 6000;
 
 type Props = { onSwitch: () => void };
 
@@ -12,19 +28,33 @@ const HeroEventos = ({ onSwitch }: Props) => {
   const scale = useTransform(scrollY, [0, 800], [1.05, 1.18]);
   const opacity = useTransform(scrollY, [0, 480], [1, 0]);
 
+  const [slide, setSlide] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => {
+      setSlide((s) => (s + 1) % SLIDES.length);
+    }, SLIDE_DURATION);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section
       id="inicio"
       className="relative h-[100svh] w-full overflow-hidden bg-[hsl(224_40%_4%)]"
     >
       <motion.div style={{ y, scale }} className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Salón corporativo del centro de eventos Cartagena Comfort"
-          width={1920}
-          height={1280}
-          className="photo-treat h-full w-full object-cover"
-        />
+        {SLIDES.map((s, i) => (
+          <img
+            key={s.src}
+            src={s.src}
+            alt={s.alt}
+            loading={i === 0 ? "eager" : "lazy"}
+            className={`photo-treat absolute inset-0 h-full w-full object-cover transition-opacity duration-[1.6s] ease-in-out ${
+              i === slide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(224_45%_5%_/_0.8)] via-[hsl(222_45%_6%_/_0.55)] to-[hsl(224_45%_4%_/_0.92)]" />
 
