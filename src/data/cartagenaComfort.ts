@@ -116,8 +116,8 @@ export const BENEFICIOS_CORPORATIVOS = [
 //
 // Social: confirmado por la clienta y cruzado contra el Portafolio
 // Corporativo (págs. 8-12), que trae una tabla igual para los 5 salones.
-// Coinciden Galeón, Olimpo, Cartagena Comfort y Stephanie. PENDIENTE:
-// JeanPaul — la clienta dijo 60, pero el PDF de ella misma dice 70.
+// JeanPaul quedó en 70 (el valor del PDF) por indicación explícita de la
+// clienta tras señalarle la diferencia con lo que había dicho antes (60).
 export const SALONES = [
   {
     nombre: "Galeón",
@@ -133,7 +133,7 @@ export const SALONES = [
     auditorio: 130,
     aula: 82,
     tipoU: 60,
-    social: 60,
+    social: 70,
     valor: "$400.000",
     distintivo: "Privado · Acogedor · Dinámico — incluye Ante Sala, divisible en 2 espacios",
     partes: [
