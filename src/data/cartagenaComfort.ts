@@ -8,11 +8,12 @@ export const CONTACTO = {
   instagram: "https://instagram.com/hotelcartagenacomfort1",
   instagramHandle: "@hotelcartagenacomfort1",
   facebook: "https://www.facebook.com/eventoscartagenacomfort",
-  // Resuelto desde el shortlink que compartió la clienta
-  // (maps.app.goo.gl/df5SJmksZ8Y73i2X8), coordenadas exactas del pin:
-  // 10.382839, -75.4665448. Se usa un link limpio (sin tokens de sesión
-  // ni parámetros de rastreo) para no depender de un redirect.
-  mapsUrl: "https://www.google.com/maps/place/Hotel+%26+Eventos+Cartagena+Comfort/@10.382839,-75.4665448,17z",
+  // El link anterior (formato /place/Nombre/@lat,lng) no siempre resuelve
+  // a un pin real — la clienta confirmó que no llevaba a ningún lado. Se
+  // usa el endpoint de búsqueda con el nombre exacto de su ficha de Google
+  // Business ("Hotel & Eventos Cartagena Comfort"), que sí muestra el
+  // negocio verificado con sus reseñas.
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Hotel & Eventos Cartagena Comfort, Cartagena, Colombia"),
 };
 
 export const NOSOTROS = {
@@ -112,13 +113,18 @@ export const BENEFICIOS_CORPORATIVOS = [
 // total y la suma de las partes — quedó el número mayor en cada caso
 // (JeanPaul: 82, la suma de las partes; Stephanie: 150, el total que ella
 // ya había confirmado).
+//
+// Social: confirmado por la clienta y cruzado contra el Portafolio
+// Corporativo (págs. 8-12), que trae una tabla igual para los 5 salones.
+// Coinciden Galeón, Olimpo, Cartagena Comfort y Stephanie. PENDIENTE:
+// JeanPaul — la clienta dijo 60, pero el PDF de ella misma dice 70.
 export const SALONES = [
   {
     nombre: "Galeón",
     auditorio: 100,
     aula: 40,
     tipoU: 35,
-    social: "Pendiente",
+    social: 60,
     valor: "$300.000",
     distintivo: "Práctico · Funcional · Versátil",
   },
@@ -127,7 +133,7 @@ export const SALONES = [
     auditorio: 130,
     aula: 82,
     tipoU: 60,
-    social: 70,
+    social: 60,
     valor: "$400.000",
     distintivo: "Privado · Acogedor · Dinámico — incluye Ante Sala, divisible en 2 espacios",
     partes: [
@@ -140,7 +146,7 @@ export const SALONES = [
     auditorio: 250,
     aula: 80,
     tipoU: 65,
-    social: "Pendiente",
+    social: 90,
     valor: "$470.000",
     distintivo: "Amplio · Accesible · Estratégico",
   },
@@ -149,7 +155,7 @@ export const SALONES = [
     auditorio: 600,
     aula: 150,
     tipoU: 100,
-    social: "Pendiente",
+    social: 200,
     valor: "$800.000",
     distintivo: "Imponente · Multifuncional — Video Beam + Tarima",
   },
@@ -226,7 +232,6 @@ export const PAQUETES = [
     nombre: "Premium",
     incluye: [
       "Todo lo del paquete Special",
-      "Maestro de ceremonia",
       "Material decorativo completo (mesa lluvia de sobres, baúl, silla Luis XV, identificadores)",
       "Menaje de lujo: 3 cubiertos dorados, plato base y plato entrada",
       "Entrada especial",

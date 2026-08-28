@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "@/components/cc/Logo";
-import { HABITACIONES, SALONES, WA_EVENTOS } from "@/data/cartagenaComfort";
+import { HABITACIONES, SALONES, WA_EVENTOS, WA_HOTEL } from "@/data/cartagenaComfort";
 
 const field =
   "w-full border-b border-background/25 bg-transparent py-3 text-sm text-background outline-none transition-colors placeholder:text-background/40 focus:border-gold";
@@ -25,9 +25,21 @@ const CotizarModal = ({ open, onClose, defaultServicio = "Hotel" }: Props) => {
   const [acomodacion, setAcomodacion] = useState(ACOMODACIONES[defaultServicio][0]);
   const [fechaIngreso, setFechaIngreso] = useState("");
   const [fechaSalida, setFechaSalida] = useState("");
+  const [horaInicio, setHoraInicio] = useState("");
+  const [horaFin, setHoraFin] = useState("");
   const [personas, setPersonas] = useState("");
   const [observaciones, setObservaciones] = useState("");
   const [acepto, setAcepto] = useState(false);
+
+  // El modal no se desmonta al cerrarse (solo cambia `open`), así que sin
+  // esto el formulario quedaba con el servicio de la última vez que se
+  // abrió — por ejemplo mostrando "Eventos" aunque ahora se abra desde la
+  // vista de Hotel. Se resincroniza cada vez que se abre.
+  useEffect(() => {
+    if (open) {
+      setServicio(defaultServicio);
+    }
+  }, [open, defaultServicio]);
 
   useEffect(() => {
     setAcomodacion(ACOMODACIONES[servicio][0]);
@@ -44,11 +56,12 @@ const CotizarModal = ({ open, onClose, defaultServicio = "Hotel" }: Props) => {
       `Acomodación: ${acomodacion}\n` +
       (esHotel
         ? `Fecha de ingreso: ${fechaIngreso}\nFecha de salida: ${fechaSalida}\n`
-        : `Fecha: ${fechaIngreso}\n`) +
+        : `Fecha: ${fechaIngreso}\nHorario: ${horaInicio} a ${horaFin}\n`) +
       `${esHotel ? "Personas" : "Asistentes"}: ${personas}\n` +
       `Observaciones: ${observaciones || "Ninguna"}`;
+    const numeroWa = esHotel ? WA_HOTEL : WA_EVENTOS;
     window.open(
-      `https://wa.me/${WA_EVENTOS}?text=${encodeURIComponent(text)}`,
+      `https://wa.me/${numeroWa}?text=${encodeURIComponent(text)}`,
       "_blank",
       "noopener,noreferrer",
     );
@@ -149,26 +162,54 @@ const CotizarModal = ({ open, onClose, defaultServicio = "Hotel" }: Props) => {
                   </label>
                 </div>
               ) : (
-                <label>
-                  <span className="mb-1 block text-xs text-background/50">Fecha del evento</span>
-                  <input
-                    required
-                    type="date"
-                    value={fechaIngreso}
-                    onChange={(e) => setFechaIngreso(e.target.value)}
-                    className={field}
-                  />
-                </label>
+                <>
+                  <label>
+                    <span className="mb-1 block text-xs text-background/50">Fecha del evento</span>
+                    <input
+                      required
+                      type="date"
+                      value={fechaIngreso}
+                      onChange={(e) => setFechaIngreso(e.target.value)}
+                      className={field}
+                    />
+                  </label>
+                  <div className="flex gap-4">
+                    <label className="flex-1">
+                      <span className="mb-1 block text-xs text-background/50">Hora de inicio</span>
+                      <input
+                        required
+                        type="time"
+                        value={horaInicio}
+                        onChange={(e) => setHoraInicio(e.target.value)}
+                        className={field}
+                      />
+                    </label>
+                    <label className="flex-1">
+                      <span className="mb-1 block text-xs text-background/50">Hora de fin</span>
+                      <input
+                        required
+                        type="time"
+                        value={horaFin}
+                        onChange={(e) => setHoraFin(e.target.value)}
+                        className={field}
+                      />
+                    </label>
+                  </div>
+                </>
               )}
-              <input
-                required
-                type="number"
-                min={1}
-                value={personas}
-                onChange={(e) => setPersonas(e.target.value)}
-                placeholder={esHotel ? "Cantidad de personas" : "Cantidad de asistentes"}
-                className={field}
-              />
+              <label>
+                <span className="mb-1 block text-xs text-background/50">
+                  {esHotel ? "Cantidad de personas" : "Cantidad de asistentes"}
+                </span>
+                <input
+                  required
+                  type="number"
+                  min={1}
+                  value={personas}
+                  onChange={(e) => setPersonas(e.target.value)}
+                  className={field}
+                />
+              </label>
               <textarea
                 value={observaciones}
                 onChange={(e) => setObservaciones(e.target.value)}

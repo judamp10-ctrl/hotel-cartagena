@@ -188,7 +188,7 @@ const Galeria = ({ view }: Props) => {
               {[...ALIADOS, ...ALIADOS].map((aliado, i) => (
                 <div
                   key={`${aliado.alt}-${i}`}
-                  className={`mr-16 flex h-28 w-56 flex-shrink-0 items-center justify-center sm:h-32 sm:w-72 ${
+                  className={`marquee-card mr-16 flex h-28 w-56 flex-shrink-0 items-center justify-center sm:h-32 sm:w-72 ${
                     i >= ALIADOS.length ? "marquee-dup" : ""
                   }`}
                 >
@@ -196,7 +196,7 @@ const Galeria = ({ view }: Props) => {
                     src={aliado.src}
                     alt={aliado.alt}
                     loading="eager"
-                    className="marquee-logo max-h-full max-w-full object-contain"
+                    className="marquee-logo max-h-[70%] max-w-[80%] object-contain"
                   />
                 </div>
               ))}

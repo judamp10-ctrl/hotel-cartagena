@@ -325,6 +325,26 @@
     /* Colores originales de cada marca — sin escala de grises. */
   }
 
+  /* Franja/tarjeta detrás de cada logo: los que son oscuros o en gris se
+     perdían contra el fondo verde oscuro de la sección. Un fondo claro
+     parejo detrás de todos (no solo los oscuros) mantiene la pasarela
+     coherente en vez de una mezcla de logos "con tarjeta" y "sin tarjeta". */
+  .marquee-card {
+    position: relative;
+    border-radius: 0.75rem;
+    background: linear-gradient(180deg, hsl(0 0% 100% / 0.1), hsl(0 0% 100% / 0.04));
+    border: 1px solid hsl(var(--gold) / 0.16);
+  }
+  .marquee-card::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 10%;
+    height: 1px;
+    background: hsl(var(--gold) / 0.45);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     /* No forzar movimiento: grilla estática con un solo set de logos. */
     .marquee-viewport {

@@ -13,6 +13,8 @@ const Cotizar = () => {
     telefono: "",
     tipo: "",
     fecha: "",
+    horaInicio: "",
+    horaFin: "",
     asistentes: "",
     salon: "",
     paquete: "",
@@ -48,6 +50,7 @@ const Cotizar = () => {
       `WhatsApp:%20${encodeURIComponent(form.telefono)}%0A` +
       `Tipo%20de%20evento:%20${encodeURIComponent(form.tipo)}%0A` +
       `Fecha%20tentativa:%20${encodeURIComponent(form.fecha)}%0A` +
+      `Horario:%20${encodeURIComponent(form.horaInicio)}%20a%20${encodeURIComponent(form.horaFin)}%0A` +
       `Asistentes:%20${encodeURIComponent(form.asistentes)}%0A` +
       `Sal%C3%B3n%20de%20inter%C3%A9s:%20${encodeURIComponent(form.salon || "No sé aún")}%0A` +
       `Paquete%20de%20inter%C3%A9s:%20${encodeURIComponent(form.paquete || "No sé aún")}` +
@@ -130,6 +133,26 @@ const Cotizar = () => {
               onChange={(e) => set("fecha", e.target.value)}
               className={inputClass}
             />
+          </label>
+
+          <label className="block">
+            <span className="label-eyebrow text-background/55">Horario *</span>
+            <div className="flex gap-4">
+              <input
+                required
+                type="time"
+                value={form.horaInicio}
+                onChange={(e) => set("horaInicio", e.target.value)}
+                className={inputClass}
+              />
+              <input
+                required
+                type="time"
+                value={form.horaFin}
+                onChange={(e) => set("horaFin", e.target.value)}
+                className={inputClass}
+              />
+            </div>
           </label>
 
           <label className="block">

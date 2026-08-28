@@ -66,7 +66,7 @@ const TopNav = ({ links, active, switchLabel, onSwitch, onCotizar }: Props) => {
     >
       <div ref={barRef} className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
         <button onClick={goTop} aria-label="Ir al inicio" className="shrink-0">
-          <Logo priority className="h-11 w-auto md:h-12" />
+          <Logo priority className="h-14 w-auto md:h-16" />
         </button>
 
         <ul className="hidden items-center gap-9 lg:flex">
