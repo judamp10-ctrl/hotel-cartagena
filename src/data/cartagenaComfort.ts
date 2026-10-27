@@ -81,7 +81,7 @@ export const HOTEL_CAPACIDAD = "36 habitaciones equipadas";
 export const HABITACIONES = [
   { nombre: "Sencilla", pax: "1 persona", precio: "$185.000" },
   { nombre: "Doble", pax: "2 personas", precio: "$230.000", destacada: true },
-  { nombre: "Triple", pax: "3 personas", precio: "$270.000" },
+  { nombre: "Triple", pax: "3 personas", precio: "$290.000" },
 ];
 
 export const HABITACION_INCLUYE = [
